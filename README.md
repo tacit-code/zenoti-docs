@@ -28,6 +28,20 @@ curl -fsSL https://raw.githubusercontent.com/tacit-code/zenoti-docs/main/install
 git clone https://github.com/tacit-code/zenoti-docs.git ~/.zenoti-docs
 ```
 
+### WSL Users
+
+If running in WSL and the install script fails with "cannot execute", use `bash` directly:
+
+```bash
+bash ./install.sh
+```
+
+Or copy manually:
+
+```bash
+cp -r /mnt/d/path/to/zenoti-docs ~/.zenoti-docs
+```
+
 ### Uninstall
 
 ```bash
@@ -82,6 +96,12 @@ docs/
 
 ```bash
 cd ~/.zenoti-docs
+
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
 pip install -r scripts/requirements.txt
 playwright install chromium
 playwright install-deps
@@ -90,7 +110,21 @@ playwright install-deps
 ### Run
 
 ```bash
+# Activate venv if not already active
+source venv/bin/activate
+
+# Run the scraper
 python scripts/fetch_zenoti_docs.py
+```
+
+### Verify
+
+After scraping completes, check the results:
+
+```bash
+ls ~/.zenoti-docs/docs/recipes/
+ls ~/.zenoti-docs/docs/guides/
+cat ~/.zenoti-docs/docs/docs_manifest.json
 ```
 
 ## Common Implementation Notes
