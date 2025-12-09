@@ -113,17 +113,58 @@ playwright install-deps
 # Activate venv if not already active
 source venv/bin/activate
 
-# Run the scraper
+# Run the scraper (headless by default)
 python scripts/fetch_zenoti_docs.py
+
+# Run with visible browser for debugging
+python scripts/fetch_zenoti_docs.py --visible
+
+# Custom output directory
+python scripts/fetch_zenoti_docs.py --output /path/to/docs
+```
+
+### Interrupting Safely
+
+The scraper uses **incremental saving** - each file is saved to disk immediately after scraping. This means you can safely interrupt at any time without losing progress:
+
+- **Ctrl+C once**: Graceful shutdown - finishes current file, saves manifest, exits
+- **Ctrl+C twice**: Force quit (progress up to last saved file is preserved)
+
+The scraper will show progress like `Scraped reference (42/350): endpoint-name.md` so you can monitor how far along it is.
+
+### Output Location
+
+By default, scraped files are saved relative to the script location:
+
+| Location | Path |
+|----------|------|
+| Default | `<script_parent>/docs/` (e.g., `~/.zenoti-docs/docs/`) |
+| Custom | Use `--output /your/path` |
+
+### Listing Scraped Content
+
+```bash
+# Count files by category
+find ~/.zenoti-docs/docs -name "*.md" | wc -l
+
+# List all scraped files
+find ~/.zenoti-docs/docs -name "*.md" | sort
+
+# View manifest (tracks all files + metadata)
+cat ~/.zenoti-docs/docs/docs_manifest.json
+
+# Check scrape metadata
+jq '.fetch_metadata' ~/.zenoti-docs/docs/docs_manifest.json
 ```
 
 ### Verify
 
-After scraping completes, check the results:
+After scraping completes (or is interrupted), check the results:
 
 ```bash
 ls ~/.zenoti-docs/docs/recipes/
 ls ~/.zenoti-docs/docs/guides/
+ls ~/.zenoti-docs/docs/reference/
 cat ~/.zenoti-docs/docs/docs_manifest.json
 ```
 
