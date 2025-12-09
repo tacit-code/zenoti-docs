@@ -16,6 +16,8 @@ import json
 import hashlib
 import logging
 import re
+import signal
+import sys
 import time
 from pathlib import Path
 from datetime import datetime
@@ -51,6 +53,22 @@ class ZenotiDocsScraper:
         self.browser: Optional[Browser] = None
         self.page: Optional[Page] = None
         self.scraped_urls: Set[str] = set()
+        self.successful = 0
+        self.failed = 0
+        self.start_time: Optional[datetime] = None
+        self._shutdown_requested = False
+
+        # Setup signal handlers for graceful shutdown
+        signal.signal(signal.SIGINT, self._signal_handler)
+        signal.signal(signal.SIGTERM, self._signal_handler)
+
+    def _signal_handler(self, signum, frame):
+        """Handle shutdown signals gracefully."""
+        if self._shutdown_requested:
+            logger.warning("Force quit requested, exiting immediately...")
+            sys.exit(1)
+        logger.info("\nShutdown requested, finishing current file and saving progress...")
+        self._shutdown_requested = True
 
     def _load_manifest(self) -> dict:
         """Load existing manifest or create new one."""
@@ -73,6 +91,44 @@ class ZenotiDocsScraper:
     def _content_hash(self, content: str) -> str:
         """Generate SHA256 hash of content."""
         return hashlib.sha256(content.encode('utf-8')).hexdigest()
+
+    def _save_file_incrementally(self, subdir: str, filename: str, content: str, source_url: str) -> bool:
+        """Save a single file and update manifest immediately.
+
+        This allows safe interruption without losing progress.
+        """
+        try:
+            filepath = self.output_dir / subdir / filename
+            filepath.write_text(content, encoding='utf-8')
+
+            # Update manifest entry
+            manifest_key = f"{subdir}/{filename}"
+            self.manifest["files"][manifest_key] = {
+                "hash": self._content_hash(content),
+                "last_updated": datetime.now().isoformat(),
+                "source_url": source_url
+            }
+
+            # Save manifest after each file for crash safety
+            self._save_manifest(self.manifest)
+            self.successful += 1
+            return True
+        except Exception as e:
+            logger.error(f"Failed to save {subdir}/{filename}: {e}")
+            self.failed += 1
+            return False
+
+    def _finalize_manifest(self) -> None:
+        """Update manifest with final metadata."""
+        self.manifest["fetch_metadata"] = {
+            "last_fetch_completed": datetime.now().isoformat(),
+            "fetch_duration_seconds": (datetime.now() - self.start_time).total_seconds() if self.start_time else 0,
+            "successful": self.successful,
+            "failed": self.failed,
+            "fetch_tool_version": "2.1",
+            "incremental_save": True
+        }
+        self._save_manifest(self.manifest)
 
     def _wait_for_page_load(self, timeout: int = DEFAULT_TIMEOUT) -> bool:
         """Wait for page to fully load."""
@@ -737,92 +793,102 @@ class ZenotiDocsScraper:
     # ========== MAIN RUN ==========
 
     def run(self):
-        """Run the complete scraping process."""
-        start_time = datetime.now()
+        """Run the complete scraping process with incremental saving.
+
+        Files are saved immediately after scraping, allowing safe interruption
+        without losing progress. Press Ctrl+C to gracefully stop.
+        """
+        self.start_time = datetime.now()
         logger.info("Starting Zenoti documentation scrape")
         logger.info(f"Headless mode: {self.headless}")
+        logger.info("Incremental save enabled - safe to interrupt with Ctrl+C")
 
         # Create output directories
         for subdir in ["recipes", "reference", "guides"]:
             (self.output_dir / subdir).mkdir(parents=True, exist_ok=True)
-
-        new_manifest = {"files": {}}
-        successful = 0
-        failed = 0
 
         with sync_playwright() as p:
             self.browser = p.chromium.launch(headless=self.headless)
             self.page = self.browser.new_page()
             self.page.set_default_timeout(DEFAULT_TIMEOUT)
 
-            # Scrape recipes
-            try:
-                recipes = self.scrape_recipes_page()
-                for filename, content in recipes:
-                    if content:
-                        filepath = self.output_dir / "recipes" / filename
-                        filepath.write_text(content, encoding='utf-8')
-                        new_manifest["files"][f"recipes/{filename}"] = {
-                            "hash": self._content_hash(content),
-                            "last_updated": datetime.now().isoformat(),
-                            "source_url": f"{BASE_URL}/recipes"
-                        }
-                        successful += 1
-            except Exception as e:
-                logger.error(f"Failed to scrape recipes: {e}")
-                failed += 1
+            # Scrape recipes (with incremental save)
+            if not self._shutdown_requested:
+                try:
+                    recipes = self.scrape_recipes_page()
+                    for filename, content in recipes:
+                        if self._shutdown_requested:
+                            break
+                        if content:
+                            self._save_file_incrementally("recipes", filename, content, f"{BASE_URL}/recipes")
+                except Exception as e:
+                    logger.error(f"Failed to scrape recipes: {e}")
+                    self.failed += 1
 
-            # Scrape guides
-            try:
-                guides = self.scrape_guides()
-                for filename, content in guides:
-                    if content:
-                        filepath = self.output_dir / "guides" / filename
-                        filepath.write_text(content, encoding='utf-8')
-                        new_manifest["files"][f"guides/{filename}"] = {
-                            "hash": self._content_hash(content),
-                            "last_updated": datetime.now().isoformat(),
-                            "source_url": f"{BASE_URL}/docs"
-                        }
-                        successful += 1
-            except Exception as e:
-                logger.error(f"Failed to scrape guides: {e}")
-                failed += 1
+            # Scrape guides (with incremental save)
+            if not self._shutdown_requested:
+                try:
+                    guides = self.scrape_guides()
+                    for filename, content in guides:
+                        if self._shutdown_requested:
+                            break
+                        if content:
+                            self._save_file_incrementally("guides", filename, content, f"{BASE_URL}/docs")
+                except Exception as e:
+                    logger.error(f"Failed to scrape guides: {e}")
+                    self.failed += 1
 
-            # Scrape reference endpoints
-            try:
-                references = self.scrape_reference()
-                for filename, content in references:
-                    if content:
-                        filepath = self.output_dir / "reference" / filename
-                        filepath.write_text(content, encoding='utf-8')
-                        new_manifest["files"][f"reference/{filename}"] = {
-                            "hash": self._content_hash(content),
-                            "last_updated": datetime.now().isoformat(),
-                            "source_url": f"{BASE_URL}/reference"
-                        }
-                        successful += 1
-            except Exception as e:
-                logger.error(f"Failed to scrape reference: {e}")
-                failed += 1
+            # Scrape reference endpoints (with incremental save)
+            if not self._shutdown_requested:
+                self._scrape_reference_incrementally()
 
             self.browser.close()
 
-        # Save manifest
-        new_manifest["fetch_metadata"] = {
-            "last_fetch_completed": datetime.now().isoformat(),
-            "fetch_duration_seconds": (datetime.now() - start_time).total_seconds(),
-            "successful": successful,
-            "failed": failed,
-            "fetch_tool_version": "2.0"
-        }
-        self._save_manifest(new_manifest)
+        # Finalize manifest
+        self._finalize_manifest()
 
         # Summary
-        duration = datetime.now() - start_time
-        logger.info(f"\nScrape completed in {duration}")
-        logger.info(f"Successful: {successful}")
-        logger.info(f"Failed: {failed}")
+        duration = datetime.now() - self.start_time
+        status = "interrupted" if self._shutdown_requested else "completed"
+        logger.info(f"\nScrape {status} in {duration}")
+        logger.info(f"Successful: {self.successful}")
+        logger.info(f"Failed: {self.failed}")
+
+    def _scrape_reference_incrementally(self):
+        """Scrape reference endpoints with immediate file saving.
+
+        Each endpoint is saved to disk immediately after scraping,
+        so progress is preserved even if interrupted.
+        """
+        logger.info("Scraping API reference (incremental mode)...")
+
+        # Get all reference links from sidebar
+        ref_urls = self._get_sidebar_links("/reference")
+        total = len(ref_urls)
+        logger.info(f"Found {total} reference endpoints")
+
+        for idx, url_path in enumerate(ref_urls, 1):
+            if self._shutdown_requested:
+                logger.info(f"Stopping at endpoint {idx}/{total} due to shutdown request")
+                break
+
+            if url_path in self.scraped_urls:
+                continue
+            self.scraped_urls.add(url_path)
+
+            try:
+                full_url = f"{BASE_URL}{url_path}" if url_path.startswith("/") else url_path
+                slug = url_path.split("/")[-1]
+
+                content = self._scrape_reference_endpoint(full_url, slug)
+                if content:
+                    filename = f"{self._slugify(slug)}.md"
+                    # Save immediately - this is the key difference
+                    self._save_file_incrementally("reference", filename, content, f"{BASE_URL}/reference")
+                    logger.info(f"Scraped reference ({idx}/{total}): {filename}")
+            except Exception as e:
+                logger.error(f"Failed to scrape reference {url_path}: {e}")
+                self.failed += 1
 
 
 def main():
