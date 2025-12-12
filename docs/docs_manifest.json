@@ -1,0 +1,74 @@
+{
+  "files": {
+    "guides/overview.md": {
+      "hash": "d06453af44b1421c005ec42db84f70c7f05809e87d97fb519e4208100d841e39",
+      "last_updated": "2025-12-08T14:28:34.207986",
+      "source_url": "https://docs.zenoti.com/docs/overview"
+    },
+    "guides/create-the-backend-app-and-generate-a-new-api-key.md": {
+      "hash": "47ecf0bf6835903820365be6f9f0575e691579ec1098118ef0cbc1014a8c0a85",
+      "last_updated": "2025-12-08T14:28:35.874158",
+      "source_url": "https://docs.zenoti.com/docs/create-the-backend-app-and-generate-a-new-api-key"
+    },
+    "guides/authentication.md": {
+      "hash": "e0d63439ccf0b9ab6dd059022538acaf0c6c4f5cc5c2994c927eab5ce53ec31d",
+      "last_updated": "2025-12-08T14:28:37.917842",
+      "source_url": "https://docs.zenoti.com/docs/authentication"
+    },
+    "guides/zenoti-api-groups-1.md": {
+      "hash": "6c6a63310de2b8269cb3c4f362dbf5b5fa5ec33fab851e9ed45300fec84ab743",
+      "last_updated": "2025-12-08T14:28:39.787300",
+      "source_url": "https://docs.zenoti.com/docs/zenoti-api-groups-1"
+    },
+    "guides/pagination.md": {
+      "hash": "6baacfe527e829e081beb128d265024cb268922177e34dcd0814f634ef170460",
+      "last_updated": "2025-12-08T14:28:42.042880",
+      "source_url": "https://docs.zenoti.com/docs/pagination"
+    },
+    "guides/response-and-error-codes.md": {
+      "hash": "2a331a27ba79998d994832ef09e67ecf18880272487022cc7e21548e7911727f",
+      "last_updated": "2025-12-08T14:28:43.928321",
+      "source_url": "https://docs.zenoti.com/docs/response-and-error-codes"
+    },
+    "guides/api-rate-limits-1.md": {
+      "hash": "ebada3a05b4c1c3a39df3d6b4d52ff2ac8eb40902ba2bfadcead0f01892f8050",
+      "last_updated": "2025-12-08T14:28:45.972534",
+      "source_url": "https://docs.zenoti.com/docs/api-rate-limits-1"
+    },
+    "guides/service-booking-apis.md": {
+      "hash": "e240bfdf150678449783ded9acf0dbf18ba8e9086447d311852f4d96f1c1e29c",
+      "last_updated": "2025-12-08T14:28:48.458658",
+      "source_url": "https://docs.zenoti.com/docs/service-booking-apis"
+    },
+    "guides/product-sale-apis.md": {
+      "hash": "f8db094f09e7eca5d957f2f596ee44481d53ac178e2c24d2ff76646d59bcb84f",
+      "last_updated": "2025-12-08T14:28:50.527474",
+      "source_url": "https://docs.zenoti.com/docs/product-sale-apis"
+    },
+    "guides/membership-sale-apis.md": {
+      "hash": "1153637a8bcafa95deaa88583bb05d1516dee4027b504b4a6573474965530ff2",
+      "last_updated": "2025-12-08T14:28:52.607682",
+      "source_url": "https://docs.zenoti.com/docs/membership-sale-apis"
+    },
+    "guides/gift-card-sale-apis.md": {
+      "hash": "803cd3e3d4eab3d2055da72da5d5b9e712ddcb26d59adcf406939930c332acac",
+      "last_updated": "2025-12-08T14:28:55.560710",
+      "source_url": "https://docs.zenoti.com/docs/gift-card-sale-apis"
+    },
+    "guides/opportunity-apis.md": {
+      "hash": "03cde19c132ff25e96e357830d43d4d6e18c4d7023e671efff5d7d11819b05e1",
+      "last_updated": "2025-12-08T14:28:57.431354",
+      "source_url": "https://docs.zenoti.com/docs/opportunity-apis"
+    }
+  },
+  "fetch_metadata": {
+    "last_fetch_completed": "2025-12-08T14:34:30.411568",
+    "fetch_duration_seconds": 612.928712,
+    "successful": 12,
+    "failed": 18,
+    "fetch_tool_version": "1.0"
+  },
+  "last_updated": "2025-12-08T14:34:30.411597",
+  "base_url": "https://raw.githubusercontent.com/tacit-code/zenoti-docs/main/docs/",
+  "source": "docs.zenoti.com"
+}

@@ -39,24 +39,41 @@ logger = logging.getLogger(__name__)
 BASE_URL = "https://docs.zenoti.com"
 MANIFEST_FILE = "docs_manifest.json"
 RATE_LIMIT_DELAY = 2.0  # seconds between requests
-DEFAULT_TIMEOUT = 60000  # 60 seconds
-NAV_TIMEOUT = 30000  # 30 seconds for navigation
+DEFAULT_TIMEOUT = 90000  # 90 seconds (increased for slow connections)
+NAV_TIMEOUT = 60000  # 60 seconds for navigation (increased)
+MAX_RETRIES = 3  # retry attempts for failed pages
+RETRY_DELAY = 5.0  # seconds between retries
 
 
 class ZenotiDocsScraper:
     """Scraper for Zenoti API documentation."""
 
-    def __init__(self, output_dir: Path, headless: bool = True):
+    def __init__(self, output_dir: Path, headless: bool = True, resume: bool = False,
+                 sections: Optional[List[str]] = None, timeout: Optional[int] = None):
         self.output_dir = output_dir
         self.headless = headless
+        self.resume = resume
+        self.sections = sections or ["recipes", "guides", "reference"]
+        self.timeout = timeout or DEFAULT_TIMEOUT
         self.manifest = self._load_manifest()
         self.browser: Optional[Browser] = None
         self.page: Optional[Page] = None
         self.scraped_urls: Set[str] = set()
         self.successful = 0
         self.failed = 0
+        self.skipped = 0
         self.start_time: Optional[datetime] = None
         self._shutdown_requested = False
+
+        # If resuming, populate scraped_urls from manifest
+        if self.resume:
+            for file_key, file_info in self.manifest.get("files", {}).items():
+                source_url = file_info.get("source_url", "")
+                if source_url:
+                    # Extract path from full URL
+                    parsed = urlparse(source_url)
+                    self.scraped_urls.add(parsed.path)
+            logger.info(f"Resume mode: {len(self.scraped_urls)} URLs already scraped")
 
         # Setup signal handlers for graceful shutdown
         signal.signal(signal.SIGINT, self._signal_handler)
@@ -130,14 +147,125 @@ class ZenotiDocsScraper:
         }
         self._save_manifest(self.manifest)
 
-    def _wait_for_page_load(self, timeout: int = DEFAULT_TIMEOUT) -> bool:
+    def _wait_for_page_load(self, timeout: int = None) -> bool:
         """Wait for page to fully load."""
+        timeout = timeout or self.timeout
         try:
             self.page.wait_for_load_state("networkidle", timeout=timeout)
             return True
         except PlaywrightTimeout:
             logger.warning("Page load timeout, continuing with available content")
             return False
+
+    def _retry_operation(self, operation, *args, max_retries: int = MAX_RETRIES, **kwargs):
+        """Retry an operation with exponential backoff."""
+        last_error = None
+        for attempt in range(max_retries):
+            try:
+                return operation(*args, **kwargs)
+            except Exception as e:
+                last_error = e
+                if attempt < max_retries - 1:
+                    delay = RETRY_DELAY * (2 ** attempt)  # Exponential backoff
+                    logger.warning(f"Attempt {attempt + 1}/{max_retries} failed: {e}. Retrying in {delay}s...")
+                    time.sleep(delay)
+        logger.error(f"All {max_retries} attempts failed: {last_error}")
+        raise last_error
+
+    def _extract_next_data(self) -> Optional[dict]:
+        """Extract __NEXT_DATA__ JSON from ReadMe.io pages.
+
+        ReadMe.io uses Next.js and embeds navigation/page data in a script tag.
+        This is more reliable than DOM scraping for getting sidebar links.
+        """
+        try:
+            script = self.page.locator("script#__NEXT_DATA__").first
+            if script:
+                json_text = script.inner_text()
+                return json.loads(json_text)
+        except Exception as e:
+            logger.debug(f"Could not extract __NEXT_DATA__: {e}")
+        return None
+
+    def _get_sidebar_links_from_json(self, section: str) -> List[str]:
+        """Extract sidebar links from __NEXT_DATA__ JSON.
+
+        Args:
+            section: 'reference', 'docs', or 'recipes'
+
+        Returns:
+            List of URL paths like ['/reference/endpoint-1', '/reference/endpoint-2']
+        """
+        links = []
+        next_data = self._extract_next_data()
+
+        if not next_data:
+            return links
+
+        try:
+            # Navigate the Next.js data structure
+            # Structure varies but typically: props.pageProps.sidebar or similar
+            props = next_data.get("props", {})
+            page_props = props.get("pageProps", {})
+
+            # Try different possible locations for sidebar data
+            sidebar_locations = [
+                page_props.get("sidebar", []),
+                page_props.get("sidebars", {}).get(section, []),
+                page_props.get("navigation", []),
+                page_props.get("tableOfContents", []),
+                props.get("sidebar", []),
+            ]
+
+            for sidebar in sidebar_locations:
+                if sidebar:
+                    links.extend(self._extract_links_recursive(sidebar, section))
+
+            # Also check for docs/pages array
+            docs = page_props.get("docs", []) or page_props.get("pages", [])
+            for doc in docs:
+                if isinstance(doc, dict):
+                    slug = doc.get("slug") or doc.get("uri") or doc.get("href")
+                    if slug:
+                        if not slug.startswith("/"):
+                            slug = f"/{section}/{slug}"
+                        if section in slug:
+                            links.append(slug)
+
+            logger.debug(f"Extracted {len(links)} links from __NEXT_DATA__ for {section}")
+
+        except Exception as e:
+            logger.debug(f"Error parsing __NEXT_DATA__: {e}")
+
+        return links
+
+    def _extract_links_recursive(self, data, section: str, depth: int = 0) -> List[str]:
+        """Recursively extract links from nested sidebar structure."""
+        links = []
+
+        if depth > 10:  # Prevent infinite recursion
+            return links
+
+        if isinstance(data, list):
+            for item in data:
+                links.extend(self._extract_links_recursive(item, section, depth + 1))
+        elif isinstance(data, dict):
+            # Check for direct link properties
+            for key in ["slug", "uri", "href", "path", "url"]:
+                if key in data:
+                    link = data[key]
+                    if isinstance(link, str):
+                        if not link.startswith("/"):
+                            link = f"/{section}/{link}"
+                        if section in link and link not in links:
+                            links.append(link)
+
+            # Recurse into children
+            for key in ["children", "pages", "items", "docs", "subpages"]:
+                if key in data and data[key]:
+                    links.extend(self._extract_links_recursive(data[key], section, depth + 1))
+
+        return links
 
     def _safe_click(self, selector: str, timeout: int = 5000) -> bool:
         """Safely click an element, returning False if not found."""
@@ -236,61 +364,101 @@ class ZenotiDocsScraper:
         return text.strip('-')
 
     def _html_to_markdown(self, soup: BeautifulSoup) -> str:
-        """Convert HTML content to markdown."""
+        """Convert HTML content to markdown, preserving document order."""
         md_parts = []
+        processed_elements = set()
 
-        # Process headings
-        for i in range(1, 7):
-            for h in soup.find_all(f'h{i}'):
-                md_parts.append(f"{'#' * i} {h.get_text().strip()}\n\n")
+        def process_element(elem):
+            """Process a single element and return its markdown representation."""
+            if id(elem) in processed_elements:
+                return ""
+            processed_elements.add(id(elem))
 
-        # Process paragraphs
-        for p in soup.find_all('p'):
-            text = p.get_text().strip()
-            if text:
-                md_parts.append(f"{text}\n\n")
+            tag = elem.name
+            if not tag:
+                return ""
 
-        # Process lists
-        for ul in soup.find_all(['ul', 'ol']):
-            for li in ul.find_all('li', recursive=False):
-                md_parts.append(f"- {li.get_text().strip()}\n")
-            md_parts.append("\n")
+            # Headings
+            if tag in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
+                level = int(tag[1])
+                text = elem.get_text().strip()
+                if text:
+                    return f"{'#' * level} {text}\n\n"
 
-        # Process tables
-        for table in soup.find_all('table'):
-            rows = table.find_all('tr')
-            if rows:
-                # Header
+            # Paragraphs
+            elif tag == 'p':
+                text = elem.get_text().strip()
+                if text:
+                    return f"{text}\n\n"
+
+            # Lists
+            elif tag in ['ul', 'ol']:
+                items = []
+                for i, li in enumerate(elem.find_all('li', recursive=False)):
+                    processed_elements.add(id(li))
+                    prefix = f"{i+1}." if tag == 'ol' else "-"
+                    items.append(f"{prefix} {li.get_text().strip()}")
+                if items:
+                    return "\n".join(items) + "\n\n"
+
+            # Tables
+            elif tag == 'table':
+                rows = elem.find_all('tr')
+                if not rows:
+                    return ""
+                table_md = []
+                # Header row
                 headers = rows[0].find_all(['th', 'td'])
                 if headers:
-                    md_parts.append("| " + " | ".join(h.get_text().strip() for h in headers) + " |\n")
-                    md_parts.append("|" + "|".join("---" for _ in headers) + "|\n")
-                # Body
+                    table_md.append("| " + " | ".join(h.get_text().strip() for h in headers) + " |")
+                    table_md.append("|" + "|".join("---" for _ in headers) + "|")
+                # Data rows
                 for row in rows[1:]:
                     cells = row.find_all(['td', 'th'])
                     if cells:
-                        md_parts.append("| " + " | ".join(c.get_text().strip() for c in cells) + " |\n")
-                md_parts.append("\n")
+                        table_md.append("| " + " | ".join(c.get_text().strip() for c in cells) + " |")
+                if table_md:
+                    return "\n".join(table_md) + "\n\n"
 
-        # Process code blocks
-        for pre in soup.find_all('pre'):
-            code = pre.get_text().strip()
-            if code:
-                lang = ""
-                code_elem = pre.find('code')
-                if code_elem:
-                    classes = code_elem.get('class', [])
-                    for cls in classes:
-                        if 'python' in cls.lower():
-                            lang = 'python'
-                            break
-                        elif 'bash' in cls.lower() or 'shell' in cls.lower():
-                            lang = 'bash'
-                            break
-                        elif 'json' in cls.lower():
-                            lang = 'json'
-                            break
-                md_parts.append(f"```{lang}\n{code}\n```\n\n")
+            # Code blocks
+            elif tag == 'pre':
+                code = elem.get_text().strip()
+                if code:
+                    lang = ""
+                    code_elem = elem.find('code')
+                    if code_elem:
+                        classes = code_elem.get('class', []) or []
+                        for cls in classes:
+                            cls_lower = cls.lower()
+                            if 'python' in cls_lower:
+                                lang = 'python'
+                                break
+                            elif 'bash' in cls_lower or 'shell' in cls_lower:
+                                lang = 'bash'
+                                break
+                            elif 'json' in cls_lower:
+                                lang = 'json'
+                                break
+                            elif 'javascript' in cls_lower or 'js' in cls_lower:
+                                lang = 'javascript'
+                                break
+                    return f"```{lang}\n{code}\n```\n\n"
+
+            # Blockquotes
+            elif tag == 'blockquote':
+                text = elem.get_text().strip()
+                if text:
+                    lines = text.split('\n')
+                    return "\n".join(f"> {line}" for line in lines) + "\n\n"
+
+            return ""
+
+        # Process elements in document order
+        target_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'ol', 'table', 'pre', 'blockquote']
+        for elem in soup.find_all(target_tags):
+            md = process_element(elem)
+            if md:
+                md_parts.append(md)
 
         return "".join(md_parts)
 
@@ -521,8 +689,15 @@ class ZenotiDocsScraper:
         return results
 
     def _get_sidebar_links(self, section_path: str) -> List[str]:
-        """Extract all links from the sidebar navigation."""
+        """Extract all links from the sidebar navigation.
+
+        Uses multiple strategies:
+        1. __NEXT_DATA__ JSON extraction (most reliable for ReadMe.io)
+        2. DOM-based sidebar scraping (fallback)
+        3. Hardcoded list (last resort)
+        """
         links = []
+        section = section_path.strip("/").split("/")[0]  # 'reference', 'docs', etc.
 
         try:
             # Navigate to section
@@ -530,32 +705,50 @@ class ZenotiDocsScraper:
             self._wait_for_page_load()
             time.sleep(RATE_LIMIT_DELAY)
 
-            # Find sidebar navigation
-            sidebar_selectors = [
-                "nav a[href*='/reference/']",
-                "nav a[href*='/docs/']",
-                "[class*='sidebar'] a",
-                "[class*='Sidebar'] a",
-                "[class*='nav'] a",
-                "[class*='menu'] a",
-            ]
+            # Strategy 1: Try __NEXT_DATA__ JSON extraction first
+            json_links = self._get_sidebar_links_from_json(section)
+            if json_links:
+                logger.info(f"[JSON] Found {len(json_links)} links from __NEXT_DATA__ for {section_path}")
+                links.extend(json_links)
 
-            for selector in sidebar_selectors:
-                try:
-                    link_elements = self.page.locator(selector).all()
-                    for link in link_elements:
-                        try:
-                            href = link.get_attribute("href")
-                            if href and section_path.split("/")[1] in href:
-                                # Normalize URL
-                                if href.startswith("/"):
-                                    links.append(href)
-                                elif href.startswith(BASE_URL):
-                                    links.append(href.replace(BASE_URL, ""))
-                        except Exception:
-                            continue
-                except Exception:
-                    continue
+            # Strategy 2: DOM-based extraction (more selectors, with logging)
+            if not links:
+                sidebar_selectors = [
+                    f"nav a[href*='/{section}/']",
+                    f"[class*='sidebar'] a[href*='/{section}/']",
+                    f"[class*='Sidebar'] a[href*='/{section}/']",
+                    "[data-testid*='sidebar'] a",
+                    "aside a",
+                    ".rm-Sidebar a",  # ReadMe.io specific
+                    "[class*='TableOfContents'] a",
+                    "[class*='nav'] a",
+                    "[class*='menu'] a",
+                    # More aggressive selectors
+                    f"a[href*='/{section}/']",
+                ]
+
+                for selector in sidebar_selectors:
+                    try:
+                        link_elements = self.page.locator(selector).all()
+                        if link_elements:
+                            found_count = 0
+                            for link in link_elements:
+                                try:
+                                    href = link.get_attribute("href")
+                                    if href and section in href:
+                                        # Normalize URL
+                                        if href.startswith("/"):
+                                            links.append(href)
+                                        elif href.startswith(BASE_URL):
+                                            links.append(href.replace(BASE_URL, ""))
+                                        found_count += 1
+                                except Exception:
+                                    continue
+                            if found_count > 0:
+                                logger.info(f"[DOM] Selector '{selector}' found {found_count} links")
+                                break  # Use first successful selector
+                    except Exception:
+                        continue
 
             # Remove duplicates while preserving order
             seen = set()
@@ -569,7 +762,7 @@ class ZenotiDocsScraper:
         except Exception as e:
             logger.warning(f"Error getting sidebar links for {section_path}: {e}")
 
-        logger.info(f"Found {len(links)} links in sidebar for {section_path}")
+        logger.info(f"Found {len(links)} total links for {section_path}")
         return links
 
     def _scrape_reference_endpoint(self, url: str, slug: str) -> str:
@@ -801,6 +994,9 @@ class ZenotiDocsScraper:
         self.start_time = datetime.now()
         logger.info("Starting Zenoti documentation scrape")
         logger.info(f"Headless mode: {self.headless}")
+        logger.info(f"Sections to scrape: {', '.join(self.sections)}")
+        logger.info(f"Resume mode: {self.resume}")
+        logger.info(f"Timeout: {self.timeout}ms")
         logger.info("Incremental save enabled - safe to interrupt with Ctrl+C")
 
         # Create output directories
@@ -810,11 +1006,14 @@ class ZenotiDocsScraper:
         with sync_playwright() as p:
             self.browser = p.chromium.launch(headless=self.headless)
             self.page = self.browser.new_page()
-            self.page.set_default_timeout(DEFAULT_TIMEOUT)
+            self.page.set_default_timeout(self.timeout)
 
             # Scrape recipes (with incremental save)
-            if not self._shutdown_requested:
+            if "recipes" in self.sections and not self._shutdown_requested:
                 try:
+                    logger.info("=" * 50)
+                    logger.info("SCRAPING RECIPES")
+                    logger.info("=" * 50)
                     recipes = self.scrape_recipes_page()
                     for filename, content in recipes:
                         if self._shutdown_requested:
@@ -826,8 +1025,11 @@ class ZenotiDocsScraper:
                     self.failed += 1
 
             # Scrape guides (with incremental save)
-            if not self._shutdown_requested:
+            if "guides" in self.sections and not self._shutdown_requested:
                 try:
+                    logger.info("=" * 50)
+                    logger.info("SCRAPING GUIDES")
+                    logger.info("=" * 50)
                     guides = self.scrape_guides()
                     for filename, content in guides:
                         if self._shutdown_requested:
@@ -839,7 +1041,10 @@ class ZenotiDocsScraper:
                     self.failed += 1
 
             # Scrape reference endpoints (with incremental save)
-            if not self._shutdown_requested:
+            if "reference" in self.sections and not self._shutdown_requested:
+                logger.info("=" * 50)
+                logger.info("SCRAPING REFERENCE")
+                logger.info("=" * 50)
                 self._scrape_reference_incrementally()
 
             self.browser.close()
@@ -850,9 +1055,14 @@ class ZenotiDocsScraper:
         # Summary
         duration = datetime.now() - self.start_time
         status = "interrupted" if self._shutdown_requested else "completed"
-        logger.info(f"\nScrape {status} in {duration}")
+        logger.info("")
+        logger.info("=" * 50)
+        logger.info(f"SCRAPE {status.upper()}")
+        logger.info("=" * 50)
+        logger.info(f"Duration: {duration}")
         logger.info(f"Successful: {self.successful}")
         logger.info(f"Failed: {self.failed}")
+        logger.info(f"Skipped (resume): {self.skipped}")
 
     def _scrape_reference_incrementally(self):
         """Scrape reference endpoints with immediate file saving.
@@ -895,9 +1105,58 @@ def main():
     """Main entry point."""
     import argparse
 
-    parser = argparse.ArgumentParser(description="Scrape Zenoti API documentation")
-    parser.add_argument("--visible", action="store_true", help="Run browser in visible mode (not headless)")
-    parser.add_argument("--output", type=str, default=None, help="Output directory")
+    parser = argparse.ArgumentParser(
+        description="Scrape Zenoti API documentation",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  # Full scrape (default)
+  python fetch_zenoti_docs.py
+
+  # Resume interrupted scrape
+  python fetch_zenoti_docs.py --resume
+
+  # Scrape only reference section
+  python fetch_zenoti_docs.py --section reference
+
+  # Scrape multiple sections
+  python fetch_zenoti_docs.py --section guides --section reference
+
+  # Visible browser with custom timeout
+  python fetch_zenoti_docs.py --visible --timeout 120000
+
+  # Custom output directory
+  python fetch_zenoti_docs.py --output /path/to/docs
+        """
+    )
+    parser.add_argument(
+        "--visible",
+        action="store_true",
+        help="Run browser in visible mode (not headless)"
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        default=None,
+        help="Output directory (default: ../docs relative to script)"
+    )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Resume from previous run, skipping already-scraped URLs"
+    )
+    parser.add_argument(
+        "--section",
+        action="append",
+        choices=["recipes", "guides", "reference"],
+        help="Section(s) to scrape (can be specified multiple times). Default: all"
+    )
+    parser.add_argument(
+        "--timeout",
+        type=int,
+        default=None,
+        help=f"Page load timeout in milliseconds (default: {DEFAULT_TIMEOUT})"
+    )
     args = parser.parse_args()
 
     if args.output:
@@ -905,7 +1164,15 @@ def main():
     else:
         docs_dir = Path(__file__).parent.parent / 'docs'
 
-    scraper = ZenotiDocsScraper(docs_dir, headless=not args.visible)
+    sections = args.section if args.section else None  # None = all sections
+
+    scraper = ZenotiDocsScraper(
+        docs_dir,
+        headless=not args.visible,
+        resume=args.resume,
+        sections=sections,
+        timeout=args.timeout
+    )
     scraper.run()
 
 
