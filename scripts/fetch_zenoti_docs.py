@@ -38,11 +38,11 @@ logger = logging.getLogger(__name__)
 # Configuration
 BASE_URL = "https://docs.zenoti.com"
 MANIFEST_FILE = "docs_manifest.json"
-RATE_LIMIT_DELAY = 2.0  # seconds between requests
-DEFAULT_TIMEOUT = 90000  # 90 seconds (increased for slow connections)
-NAV_TIMEOUT = 60000  # 60 seconds for navigation (increased)
-MAX_RETRIES = 3  # retry attempts for failed pages
-RETRY_DELAY = 5.0  # seconds between retries
+RATE_LIMIT_DELAY = 0.5  # seconds between requests (reduced for speed)
+DEFAULT_TIMEOUT = 30000  # 30 seconds
+NAV_TIMEOUT = 20000  # 20 seconds for navigation
+MAX_RETRIES = 2  # retry attempts for failed pages
+RETRY_DELAY = 2.0  # seconds between retries
 
 
 class ZenotiDocsScraper:
@@ -767,16 +767,14 @@ class ZenotiDocsScraper:
 
     def _scrape_reference_endpoint(self, url: str, slug: str) -> str:
         """Scrape a single API reference endpoint."""
-        logger.info(f"Scraping reference endpoint: {slug}")
+        try:
+            self.page.goto(url, timeout=NAV_TIMEOUT, wait_until="domcontentloaded")
+            time.sleep(0.2)  # Minimal wait
+        except PlaywrightTimeout:
+            logger.warning(f"Timeout loading {slug}")
+            return ""
 
-        self.page.goto(url, timeout=NAV_TIMEOUT)
-        self._wait_for_page_load()
-        time.sleep(RATE_LIMIT_DELAY)
-
-        # Click Python tab for code examples
-        self._click_python_tab()
-        time.sleep(0.5)
-
+        # Skip tab clicking - too slow. Just grab available content.
         # Extract content
         soup = BeautifulSoup(self.page.content(), 'html.parser')
 
@@ -880,39 +878,26 @@ class ZenotiDocsScraper:
         return md
 
     def _extract_code_examples_section(self) -> str:
-        """Extract code examples, prioritizing Python."""
+        """Extract code examples from visible content (no tab clicking for speed)."""
         md = ""
 
-        # First, try to click Python tab
-        self._click_python_tab()
-        time.sleep(0.3)
-
-        # Get all code blocks
+        # Get all visible code blocks - skip tab clicking
         code_blocks = self._extract_code_blocks()
 
-        # Also try clicking through language tabs
-        tab_content = self._click_all_tabs_and_extract()
+        python_code = None
+        curl_code = None
 
-        # Prioritize Python
-        python_code = tab_content.get('Python') or tab_content.get('python')
-        if not python_code:
-            for block in code_blocks:
-                if 'import' in block['code'] or 'requests' in block['code']:
-                    python_code = block['code']
-                    break
+        for block in code_blocks:
+            code = block['code']
+            if not python_code and ('import' in code or 'requests' in code or 'python' in block.get('language', '').lower()):
+                python_code = code
+            elif not curl_code and 'curl' in code.lower():
+                curl_code = code
 
         if python_code:
             md += "## Code Examples\n\n"
             md += "### Python\n\n"
             md += f"```python\n{python_code}\n```\n\n"
-
-        # Add cURL if available
-        curl_code = tab_content.get('cURL') or tab_content.get('Shell') or tab_content.get('curl')
-        if not curl_code:
-            for block in code_blocks:
-                if 'curl' in block['code'].lower():
-                    curl_code = block['code']
-                    break
 
         if curl_code:
             if "## Code Examples" not in md:

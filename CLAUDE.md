@@ -36,3 +36,31 @@ Previous implementations have failed due to:
 4. Wrong slot reservation flow
 
 Always reference the recipe docs for the correct implementation.
+
+## Scraper CLI Reference
+
+```bash
+# Full scrape (all sections)
+python scripts/fetch_zenoti_docs.py
+
+# Resume interrupted scrape (skip already-scraped URLs)
+python scripts/fetch_zenoti_docs.py --resume
+
+# Scrape specific section(s)
+python scripts/fetch_zenoti_docs.py --section reference
+python scripts/fetch_zenoti_docs.py --section guides --section reference
+
+# Visible browser + custom timeout (for debugging)
+python scripts/fetch_zenoti_docs.py --visible --timeout 120000
+
+# Custom output directory
+python scripts/fetch_zenoti_docs.py --output /path/to/docs
+```
+
+### Scraper Features (v2.1)
+- **Incremental saving** - files saved immediately, safe to Ctrl+C
+- **Resume mode** - `--resume` skips URLs already in manifest
+- **Section filtering** - `--section` to scrape only specific sections
+- **JSON hydration** - extracts sidebar links from `__NEXT_DATA__` (ReadMe.io)
+- **Retry logic** - exponential backoff (3 retries) for failed pages
+- **Configurable timeouts** - `--timeout` flag (default: 90s)

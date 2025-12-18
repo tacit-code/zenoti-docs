@@ -59,16 +59,1572 @@
       "hash": "03cde19c132ff25e96e357830d43d4d6e18c4d7023e671efff5d7d11819b05e1",
       "last_updated": "2025-12-08T14:28:57.431354",
       "source_url": "https://docs.zenoti.com/docs/opportunity-apis"
+    },
+    "reference/generate-an-access-token.md": {
+      "hash": "07a7a35394870b2c7f164dc46abc58b1efbf1c7d23f379f27745c2090af42390",
+      "last_updated": "2025-12-14T19:10:04.032202",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/refresh-an-access-token.md": {
+      "hash": "686e2fe22f015ff97921b6a6a6ccd4ddd498900bcb8d6241b8177626fa379d58",
+      "last_updated": "2025-12-14T19:13:05.404989",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/revoke-an-existing-access-token.md": {
+      "hash": "6922c02029dc76ced3da5ca9929ece0b523090ebcc5f2420d889856b43b45f65",
+      "last_updated": "2025-12-14T19:16:06.014421",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/centers.md": {
+      "hash": "33efc87b8ad246e3deccb815ed2beec823aaca924813a1d8f718ab7a0454d6f1",
+      "last_updated": "2025-12-14T19:18:34.945120",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-centers.md": {
+      "hash": "d6b2349712f6a2607ac007fd9ee6fb150955d09007f45c702baa643c549cb6d1",
+      "last_updated": "2025-12-14T19:21:40.311941",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/fetch-list-of-centers-based-on-parameters.md": {
+      "hash": "0d7d8b2ac159d817ff3167fef03dc47a31b73c2899fb346fcc9ff03d1b7517ca",
+      "last_updated": "2025-12-14T19:24:44.914819",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-a-center.md": {
+      "hash": "7b04e4c1c76cb0a477ab201d0828a33df9dc880174ba00aa4ccc784fff189e6f",
+      "last_updated": "2025-12-14T19:27:47.444213",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-campaignintro-pricing-along-with-services.md": {
+      "hash": "40daee6ff90a57e3e51ba607c2a3f64e64313ef2d6120d0b9f9149566b1744c9",
+      "last_updated": "2025-12-14T19:30:51.169941",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/deactivate-or-disable-a-center.md": {
+      "hash": "90e532f5aee701f947a173a2c00f07967a0d1a61c5b11518f6ff8ff409984a7f",
+      "last_updated": "2025-12-14T19:33:54.137318",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-categories.md": {
+      "hash": "15c1563626512467cd18964acc8fc17d0274d4be6dfa3ff3a1dbc0c025bb25bc",
+      "last_updated": "2025-12-14T19:36:56.427501",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-a-category.md": {
+      "hash": "16362a05badcda3791e2d5396a1a8b3b794a38705dd6fcd6d6e3cc771d325708",
+      "last_updated": "2025-12-14T19:39:59.346026",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-rooms-of-a-center.md": {
+      "hash": "3372bbb18dcbbbe968747b3c217c1c88f1710f1d2c4b0eb3242290a2e73aceed",
+      "last_updated": "2025-12-14T20:10:17.006473",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-a-room-of-a-center.md": {
+      "hash": "108c1c5e1ce4d289fbf8da9c0ceb7079b78a54b6f42d14ad15ea810d98fd6196",
+      "last_updated": "2025-12-14T20:13:21.001467",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-employees-of-a-center.md": {
+      "hash": "daffc1c0219f5c4a6b3df7644441e5413a2393ca852584893bdacdcd06d5f3e8",
+      "last_updated": "2025-12-14T20:16:28.685192",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-therapists-of-a-center.md": {
+      "hash": "944d7201c403d26a83434640246a93b6ca601662ff87df2eaad99da496b6001e",
+      "last_updated": "2025-12-14T20:19:43.090768",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-blockout-times-of-a-center.md": {
+      "hash": "59c94671dda2ea2064533606e434b15b23cedfad3983a0f88834032d35b19317",
+      "last_updated": "2025-12-14T20:22:52.212713",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/center-attendance-for-a-date.md": {
+      "hash": "0a77b7096c265c6fefb969058004e728936d86805798805c6c3c59776203e471",
+      "last_updated": "2025-12-14T20:25:58.474613",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-schedules-of-employees-of-a-center.md": {
+      "hash": "65f935466453f7933448f6e974598175c60fd9c7bfa517edb5c8712101e0e6fb",
+      "last_updated": "2025-12-14T20:29:10.814290",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-therapist-pricing-and-price-scaling-for-a-service-at-a-center.md": {
+      "hash": "71daa2c433c52988da334472d70c881579c2f4776e3529fe610bfd73e6de8dde",
+      "last_updated": "2025-12-14T20:32:18.247350",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-services-of-a-center.md": {
+      "hash": "f371084ad83e7e3ebee6ee9a67b13c30739132349a3263cebb2e75438d21fa92",
+      "last_updated": "2025-12-14T20:35:43.250853",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-a-service-of-a-center.md": {
+      "hash": "59a6d71bed44f9500559f2236dec98b5296f9044c48108178807ebf671504143",
+      "last_updated": "2025-12-14T20:39:06.726494",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-packages-of-a-center.md": {
+      "hash": "8dcff0bbd6a7359dfc2adb0c84f363f97223c446ce58cdaf66692b68925fc9d0",
+      "last_updated": "2025-12-14T20:42:42.332730",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-products-of-a-center.md": {
+      "hash": "456d394c6080c9eed59201f6591fffbcbfda16428fb11ae3f78a789b9cc9fb26",
+      "last_updated": "2025-12-14T20:46:03.614766",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-memberships-in-a-center.md": {
+      "hash": "8f20ac0d09aedea5fc85e39842390958c7fe1e8afa858e483990f2ccf8d7936b",
+      "last_updated": "2025-12-14T20:49:12.354487",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-details-of-all-the-members-of-a-center.md": {
+      "hash": "2bbf6d3123ae3f9ad1650dbf02a24d8c2deb82966389b95a81fc6b2983f0afe7",
+      "last_updated": "2025-12-14T20:52:20.127815",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/add-v1-online-guest-creation.md": {
+      "hash": "f184bd522b2f3a699b0b83199ce4fa5532adaf24a92fb4476d1c0678fbab437c",
+      "last_updated": "2025-12-14T20:55:29.540580",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-guest.md": {
+      "hash": "61b7a48dd244c5ba4d2733093f2f2b0414454a86a8ed9f2e244dd40d92460290",
+      "last_updated": "2025-12-14T20:58:43.955910",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-new-guests-using-referral-codes.md": {
+      "hash": "7daf6e74e75b92b227fc954b065d2f8c648fdc404942ba41791ee43c8e78ac6c",
+      "last_updated": "2025-12-14T21:01:49.566599",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/add-a-creditdebit-card-for-a-guest-service-booking-and-billing.md": {
+      "hash": "3734df18ad543997a28e235cad3a679193b0f2c328ddcd4b661c5f0370517a9e",
+      "last_updated": "2025-12-14T21:17:56.173614",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-guest-details.md": {
+      "hash": "793109622583a84282fd6f9df9613079dc52565a52d821f2f7456242ef3c5deb",
+      "last_updated": "2025-12-14T21:21:06.948143",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-saved-creditdebit-cards-of-a-guest.md": {
+      "hash": "6ca096d4c0e3c2e5cac1ddd25a0ea4b525948213ed1aad10fca5add85abb482b",
+      "last_updated": "2025-12-14T21:31:14.964518",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/search-for-a-guest.md": {
+      "hash": "577446f1ccbbe1fc0c0b28f6c80fd290aa1ab3697b991d75105b362484c43254",
+      "last_updated": "2025-12-14T21:34:22.035243",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-appointments-of-a-guest.md": {
+      "hash": "8997f1caa9affb2d51f67eb551ace5a91f7fdd8ffb347953c920122e596d4955",
+      "last_updated": "2025-12-14T21:37:33.521002",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-products-purchased-by-a-guest.md": {
+      "hash": "0f4d8e84b85100af1d99f0c81821f20dec1b227e0f8c81ea8576e8d12ab5274d",
+      "last_updated": "2025-12-14T21:40:42.834948",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-gift-cards-of-a-guest.md": {
+      "hash": "3674c93d598d4bffe4806be098fbccf96c74384c38f6b90e4191e1f15c6ead6c",
+      "last_updated": "2025-12-14T21:43:52.367011",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-prepaid-cards-of-a-guest.md": {
+      "hash": "a0163e229d3e57042baf55f87680f00cd6004c797e3fd7de390a2b3d68f17771",
+      "last_updated": "2025-12-14T21:47:00.393324",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-coupons-of-a-guest.md": {
+      "hash": "3877906681ffcfc09ad94289ccd5f74f971fc269165717a1d5121e6156b326b7",
+      "last_updated": "2025-12-14T21:50:07.315925",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-the-series-packages-of-a-guest.md": {
+      "hash": "9a417c07573f66c8ea1f831fa3a2cc795db69640fd2e8e7b4d1863b812e33d60",
+      "last_updated": "2025-12-14T21:53:23.487831",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-relationships-belonging-to-a-guest.md": {
+      "hash": "4527e6212e81d14a8464f1e6fe5b830fe9508a90898070b196fc3aa4f3a4fc70",
+      "last_updated": "2025-12-14T21:56:33.418894",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-guests-of-a-center.md": {
+      "hash": "dd9e88ed56809875c9c8075e877a2f094fe96dae9d7003195ea566e64538836b",
+      "last_updated": "2025-12-14T21:59:39.476710",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/verify-the-payable-loyalty-points-of-a-guest.md": {
+      "hash": "1bf0692d4f8177855955583284f1cc42064129354393a7953a1fc216b88d6a05",
+      "last_updated": "2025-12-14T22:02:51.406874",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-loyalty-points-history-of-a-guest.md": {
+      "hash": "0372827a10c9b11d9fc86b47ae45cf12a4f97fc5f122739af60c135d45684ae0",
+      "last_updated": "2025-12-14T22:06:03.093211",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-merge-history-of-guest-records.md": {
+      "hash": "ef38ed853a35ed0a60a80c0a24181fa18194fbace32799db928b20cb34718f55",
+      "last_updated": "2025-12-14T22:09:22.944005",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-loyalty-points-of-a-guest-earnedredeemed.md": {
+      "hash": "01a176187f13cfe2886472c82d4bab1600da14ed6d9766fb9ea70aa5250923cf",
+      "last_updated": "2025-12-14T22:12:31.156160",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/changecancel-auto-renewal-of-guest-membership.md": {
+      "hash": "2ad9b9b1d2f12001e6e57523d33439a0a904389e66fe93ec3fee47de69cae832",
+      "last_updated": "2025-12-14T22:15:37.036111",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-a-guest.md": {
+      "hash": "4b6c64c2b4531fa345b930a3007db1b0de94fd9fa522b4011fd24b3f39551531",
+      "last_updated": "2025-12-14T22:18:53.237115",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-billing-address-from-the-guest-profile.md": {
+      "hash": "9c0295ed25a35ceb13e3631cc972516901caf34eea4b420360090b07f51f993d",
+      "last_updated": "2025-12-14T22:22:01.127071",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/delete-a-guests-saved-creditdebit-card.md": {
+      "hash": "275f7acb3d6dc9a93826f08ef85e809c77a96741e3ba8e4c02e059d9d2f5f96c",
+      "last_updated": "2025-12-14T22:25:06.642445",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/delete-relationship-between-guests.md": {
+      "hash": "23056ddb449edec5e999f20dbe7b924dadf8d4f93ff73cd824dbf9555fcedd0d",
+      "last_updated": "2025-12-14T22:28:11.934241",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/merge-guests.md": {
+      "hash": "c6ae1187b33fcdceade44d6b3785b2c8110ebaddd3ff608832099dde27d6b382",
+      "last_updated": "2025-12-14T22:31:16.128670",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-loyalty-points-of-a-guest.md": {
+      "hash": "321f5bd6d1e8b4b0f3bbf6ea817c7a412f3dba03fa994679f59255865d2090fc",
+      "last_updated": "2025-12-14T22:34:20.957176",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/registering-guest-for-loyalty-points-tier.md": {
+      "hash": "4c98d78fae57cd71cfee53ecb58f0e94a881d38a697cc9359e0ac76525fdaca7",
+      "last_updated": "2025-12-14T22:37:29.387385",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/activate-guest-email.md": {
+      "hash": "647b2b5cd3d3f25fe0a8409dc311045178f35c26b4b7d66728b8ad18d20dcf13",
+      "last_updated": "2025-12-14T22:40:35.065272",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/check-aveda-birthday-gift-availability.md": {
+      "hash": "c3ac8fda291bedcff3607cc5c9bb0a88f5b38cd2a9857a25fbbcd8fd2127459a",
+      "last_updated": "2025-12-14T22:43:40.457745",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/claim-aveda-birthday-gift.md": {
+      "hash": "cee18934f57276150deb706b0c4e26cf23586b8f343edf73f8d33c3502f502d6",
+      "last_updated": "2025-12-14T22:46:47.367768",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-guest-note.md": {
+      "hash": "d2a304b9fb502654da09ed48a1ae805b7f29046759a78858bcd2c79a7bf89603",
+      "last_updated": "2025-12-14T22:49:53.171904",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-a-guest-note.md": {
+      "hash": "33caee2870087831039385121613e4c0dd8e5883f21c2a5460a47a4148f8dfc6",
+      "last_updated": "2025-12-14T22:52:58.634248",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-notes-for-a-guest.md": {
+      "hash": "4ee296e8da325f19b6deda8f59bd10eb6ddd92afbf162963e51100b7c1b6d0df",
+      "last_updated": "2025-12-14T22:56:04.554027",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-a-guest-note.md": {
+      "hash": "77411cf1f5153fb1d8edbb45c1d221f6268dfa36536c0bda629fbdac5f638d79",
+      "last_updated": "2025-12-14T22:59:12.151415",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/delete-a-guest-note.md": {
+      "hash": "3104f6897449a7d59f4163f8ccefc5b99cd95fefbbdb65a9ecaffe4288e2f2e6",
+      "last_updated": "2025-12-14T23:02:16.135759",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-guest-form.md": {
+      "hash": "b0b8992d302125ab5f3585380de3a9d2e29c3ad8a9d0f822f5146425de1a5d89",
+      "last_updated": "2025-12-14T23:05:23.286579",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-a-guest-form.md": {
+      "hash": "ef6a2e6eb464a82fc9acffb870a6910603f3a04874639419184dc70e97a5c805",
+      "last_updated": "2025-12-14T23:08:30.186505",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-a-guest-form.md": {
+      "hash": "847a990aa0083c714292789b550a740a5730f32c76b1e2b1b66d8b267f65f054",
+      "last_updated": "2025-12-14T23:11:36.920193",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-memberships-of-a-guest.md": {
+      "hash": "a28af1586513f650eda02ce258ad4e1b23c345d5cdbd35e9cc75fe26e5e28dbc",
+      "last_updated": "2025-12-14T23:14:52.730504",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-membership-change-log.md": {
+      "hash": "9068fc11d8224bb3119cbeff116c3422befe33b4134a3f0dd2f931da59d14cd3",
+      "last_updated": "2025-12-14T23:17:59.285055",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/fetch-the-pending-membership-collection-amount-of-a-guest.md": {
+      "hash": "3aa9dfa608ffd93122e7e9188d6fc45c42d538e52ab019e83fbbe79fb406dd7d",
+      "last_updated": "2025-12-14T23:21:07.040739",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/cancel-the-membership-of-a-guest.md": {
+      "hash": "2fa1e6418e8650acbd9a003b7d4cfdbd6bd0ce05a5e031e39424c9c3c2610073",
+      "last_updated": "2025-12-14T23:24:17.223570",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/freeze-the-membership-of-a-guest.md": {
+      "hash": "93c44b0e985793bc4dd06c59ceae492d2aeba7a34917340f453fc7b2ffc04540",
+      "last_updated": "2025-12-14T23:27:28.734209",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/unfreeze-the-membership-of-a-guest.md": {
+      "hash": "f79e6f85baea781f7102bc992fdad4708a948348c19b9a91bd6f87ccd15026d5",
+      "last_updated": "2025-12-14T23:30:36.321333",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/reset-the-password-of-a-guest.md": {
+      "hash": "836f249f364179ee1e310fbdaa9d6491ba096d3aa3512d8ecfa4dfd33a81f720",
+      "last_updated": "2025-12-14T23:33:43.132335",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-the-password-of-a-guest-using-the-old-password.md": {
+      "hash": "9ae43ebbe05074a797b3020ed6eee94c9a2c210ff1c10734ad67e98407515405",
+      "last_updated": "2025-12-14T23:36:51.910219",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-the-password-of-a-guest-using-otp.md": {
+      "hash": "c687eeba48c2f43afc374dfe9b7b24c792ddfbb143b0a40cbf911b8c218ab779",
+      "last_updated": "2025-12-14T23:40:00.914404",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/add-employee-with-catalog-information.md": {
+      "hash": "98fec302810d117e03ee6562ba1f5be76c414c43fa6899fb8ed629e616f4f071",
+      "last_updated": "2025-12-14T23:43:14.502155",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-employee-details-with-payroll-information.md": {
+      "hash": "f19d5729e192e331ff8a6aa6a5aa461ad5efff605b340a55450187e5439697c2",
+      "last_updated": "2025-12-14T23:46:48.805006",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-employee-of-the-center-with-given-catalog-details.md": {
+      "hash": "6fa330bf1569e1e6e249476b0c667a4e84295b61fe2990e3316410a8e25fee4d",
+      "last_updated": "2025-12-14T23:50:15.943512",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/check-in-an-employee.md": {
+      "hash": "d598156242cfef19263a7e2d8969583aaabe0ee1dab903f7793c16ab9ee0d819",
+      "last_updated": "2025-12-14T23:53:26.045760",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/check-out-an-employee.md": {
+      "hash": "1ab2d0f6ca0a778f976d5b17fcb3ed9df82e2023568223dc934b9695609b4b04",
+      "last_updated": "2025-12-14T23:56:35.062936",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-the-schedule-of-an-employee.md": {
+      "hash": "4b4dd1d1af9ed12e6963b16a0a9d40d16bd014b00ba30df32857668d48643a4b",
+      "last_updated": "2025-12-14T23:59:50.796070",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-attendance-of-an-employee.md": {
+      "hash": "2da3a4a91175fc3f9c530123f4cdc642ab79160a99a9e02cb289cc05fe7df7ad",
+      "last_updated": "2025-12-15T00:03:10.922025",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-an-api-for-creating-custom-field-images.md": {
+      "hash": "54d58f470448ad7322fe66aebae1e5fcb79dadde22bedc82d041cb7d3952b0e6",
+      "last_updated": "2025-12-15T00:06:17.339431",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/get-custom-fields-details.md": {
+      "hash": "127227016759150733cd70455ae90300ebc5611d0d4d25224bf320d6d86a2915",
+      "last_updated": "2025-12-15T00:09:22.564689",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/delete-employee-medical-licenses.md": {
+      "hash": "0ddf2fa32b04cd86e22b8ed9a7f0e7519ae04e149336de79f2dcac6239bca856",
+      "last_updated": "2025-12-15T00:12:28.193373",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/fetch-employees-with-form-review-or-supervisor-access.md": {
+      "hash": "e04588267bd08cabb7a962c48504e081281f69b43c8a33fe99df7eef19a2ba2b",
+      "last_updated": "2025-12-15T00:15:35.717922",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-blockout-time-for-an-employee.md": {
+      "hash": "7d0ea9575e2b683e06b1891f0ce6a0141e4f1f1b24682cfed906c2bd83f4cef3",
+      "last_updated": "2025-12-15T00:18:43.810677",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-recurring-employee-blockout-time.md": {
+      "hash": "28d3b411ff92f30bac88e2f28a514be0787166fabecfffc257a9af7ec57c9b64",
+      "last_updated": "2025-12-15T00:21:48.925090",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-blockout-time-of-an-employee.md": {
+      "hash": "5646876528434e4d85f2101d6f0784b98a727e6ec35bfc3f22aafd0fbd0361bf",
+      "last_updated": "2025-12-15T00:24:54.500574",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-all-blockout-times-of-an-employee.md": {
+      "hash": "cbd029996cd93f09917eee6a34cf2f7a5be225dbcfbc7b6d9a97f3d8aa6bf76f",
+      "last_updated": "2025-12-15T00:27:59.779262",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-blockout-times-of-a-center-1.md": {
+      "hash": "2665a9befc13314efbcba0994cf69d944c9fe6616c61305cd6ac8ea073010d12",
+      "last_updated": "2025-12-15T00:31:03.837900",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-blockout-times-types.md": {
+      "hash": "18f7abb71a5b56885976d78925f2b1a396c69565cf823fa01e840cd468eb482a",
+      "last_updated": "2025-12-15T00:34:07.945894",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-the-blockout-time-of-an-employee.md": {
+      "hash": "8ee33f36e379ada58f5464315424d2e03855b29af1ab5742aa06f474d5f9a32c",
+      "last_updated": "2025-12-15T00:37:13.359043",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/remove-the-blockout-time-of-an-employee.md": {
+      "hash": "694b7d9a3a4398cfecdd422b9aabe4982b8efa636251a45c34180fdaf4925c9f",
+      "last_updated": "2025-12-15T00:40:17.519698",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/add-the-security-role-for-an-employee.md": {
+      "hash": "21c0943410fb183b45026ce2db1b544ed6fa99e5f2d697280c93db45f59bb774",
+      "last_updated": "2025-12-15T00:43:24.597610",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-security-roles-of-an-employee.md": {
+      "hash": "4dd45d93ac3c53f97b8369e7e6da19641d03bedf2fbbabf59626da3dda99b7e4",
+      "last_updated": "2025-12-15T00:46:31.316420",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/delete-the-role-of-an-employee.md": {
+      "hash": "c79cfa03221c2862f1463de9856047e5cf795aa115d284a66daeffa433ef9424",
+      "last_updated": "2025-12-15T00:49:35.573659",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-the-blockout-time-of-a-room.md": {
+      "hash": "6d26d8540ecc2a44d3f0360f63f83a8c68804eef6c516da8ebb90327a6b20b60",
+      "last_updated": "2025-12-15T00:52:41.411515",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-recurring-room-blockout-time.md": {
+      "hash": "6a9668ed0ce28ce07792e862e1e593fe6421b0b1c8b8733b296eef68890a1e07",
+      "last_updated": "2025-12-15T00:55:47.541261",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-block-out-time-of-a-room.md": {
+      "hash": "4f850905363da596436db50eec5943649ae77e8c4fcba3f679a121ea9ae59bca",
+      "last_updated": "2025-12-15T00:58:53.608050",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-all-blockout-times-of-a-room.md": {
+      "hash": "1efc955af4c2611786889ba85f1be73da1e636fad3ff05b0defa82089a011899",
+      "last_updated": "2025-12-15T01:01:59.638802",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-the-blockout-time-of-a-room.md": {
+      "hash": "b741cd1f4a1a1d81e6b14b9ad496049f8ae84f8ef86eae1366d02365fed433d2",
+      "last_updated": "2025-12-15T01:05:05.249344",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/remove-a-room-blockout-time.md": {
+      "hash": "129e6833517ea4c9a9aea039a0b00bbfecdbecb60786cdf6f4bcb66a9cb8c7e4",
+      "last_updated": "2025-12-15T01:08:09.463968",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-3.md": {
+      "hash": "9bcdef716640303eaaba8c2226d663be4912254e8e170cdf78f4d0355eff3754",
+      "last_updated": "2025-12-15T01:10:42.864485",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-service-booking-copy.md": {
+      "hash": "583e07f13050f2432cb1765121b494eb2b743042761013fe1345ed4d709f0fc0",
+      "last_updated": "2025-12-15T01:14:02.796764",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/implement-single-therapist-bookings-for-v1.md": {
+      "hash": "38dd1f5e57dd4f1f2f7264e79abd15eeea75534f5cba67b7c62d854e4bfcd4e7",
+      "last_updated": "2025-12-15T01:18:40.165985",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-available-slots-for-a-service-booking.md": {
+      "hash": "1e6a85473058285fd4725ca352165991747ec2814c05cb570cebd7dc2e9b19c4",
+      "last_updated": "2025-12-15T01:21:54.258262",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/reserve-a-slot-for-a-service-booking.md": {
+      "hash": "5662003455f4208c3d09066c038a2a973577f2cfa169cf3258898c1742d89bf7",
+      "last_updated": "2025-12-15T01:25:10.995076",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/confirm-a-service-booking.md": {
+      "hash": "282fe3318f4fe365841c9de6cdeb9560de407567c3cb6deca3457a466efdb782",
+      "last_updated": "2025-12-15T01:28:29.874722",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/reschedule-a-service-booking.md": {
+      "hash": "0c6442e00d151a8dc655517d8cc3766fb507d85e682f5c092208cd390a87bdbc",
+      "last_updated": "2025-12-15T01:31:36.508246",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-bookings-of-service-bundles-and-day-packages.md": {
+      "hash": "ebb6ae6d50c49b4e55c6292beb75aec19b8ae8e317da138df72e41c4991ead2f",
+      "last_updated": "2025-12-15T01:34:48.116026",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-gift-card-sale-invoice-after-using-a-gift-card-template.md": {
+      "hash": "28315bea1c38239b6a21680991c71271095a551d3465b5fd19e32f57e196b362",
+      "last_updated": "2025-12-15T01:38:05.006198",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-occasions.md": {
+      "hash": "a447d217cf5d5785f512f87ab0aaecd0cd38968ef39d0a96d08de3974d6674df",
+      "last_updated": "2025-12-15T01:41:11.612172",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/verify-the-balance-of-a-gift-card.md": {
+      "hash": "c3e7ecff589a98375c16d609d4f112ab3999d04676376ceb649008ff70a801fc",
+      "last_updated": "2025-12-15T01:44:19.397543",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-gift-card-template-with-custom-amount.md": {
+      "hash": "32e5ec8a6d82c4683597f03cf36c405a15c1f3503e665cc73dc8c73fbbdbf75c",
+      "last_updated": "2025-12-15T01:47:25.859722",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-gift-card-template-with-services-or-day-packages.md": {
+      "hash": "028e873ce3a1a4aa9a81a13dce9db1da4a0cb281d72bbc4b192c2b9f65da99b1",
+      "last_updated": "2025-12-15T01:50:31.647487",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-templates.md": {
+      "hash": "5eb2dcef951c4cfb001d797b2e71b32707d166cbae78c8b1163ac19d77b54621",
+      "last_updated": "2025-12-15T01:53:51.302622",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/get-center-predefined-gift-card-templates.md": {
+      "hash": "40602fcf36a06f7a30db5e38391dfcdf0907739ebd5af1a31a8a2bd6f7b5998a",
+      "last_updated": "2025-12-15T10:39:36.397303",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-an-opportunity.md": {
+      "hash": "ce93d9b6eeeaa1390a58e198ff4146cca5021522d32b608872e2c5bc4990ecd5",
+      "last_updated": "2025-12-15T10:43:24.030466",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/metadata-of-the-opportunities.md": {
+      "hash": "9bb161b48ce0d104d9db766f2b124e67a10c301c9a9dd8eafab758d9b81ff806",
+      "last_updated": "2025-12-15T10:46:58.443810",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-an-opportunity.md": {
+      "hash": "b0a1de78608688c7ae4fe651e7f3f039ab8f2bf6bca5c1e958fab699f30cc62f",
+      "last_updated": "2025-12-15T10:50:34.410004",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-opportunities.md": {
+      "hash": "4071111489974658db53987f68776c28034e505a40e8ecb89cd114dce9bc3b72",
+      "last_updated": "2025-12-15T10:54:11.238041",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/edit-an-opportunity.md": {
+      "hash": "31d3dc29ef70a86576ba7e423617e9195a618309f49548f99079725d8532b6eb",
+      "last_updated": "2025-12-15T10:57:46.381414",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/add-notes-to-an-opportunity.md": {
+      "hash": "61753fd6d69d2d4f06db2ac461386b37bb83968794ccf8594e86aaede03798e3",
+      "last_updated": "2025-12-15T11:01:20.766450",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-the-notes-of-an-opportunity.md": {
+      "hash": "d895abe2806d9f0622e02ed6eca947a0d68d2b05f8f1c66d4d6bd77244144288",
+      "last_updated": "2025-12-15T11:04:56.202553",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/insert-guests-feedback-into-zenoti.md": {
+      "hash": "0ace0416882bb87f86a49a29056a27df9357a31041df39f01417324315d9db45",
+      "last_updated": "2025-12-15T11:08:04.656184",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-appointments-of-a-center.md": {
+      "hash": "7c5beeff27940bdf8e7075cf34979f34d0d2975bc3ccc531d70a9c0c81fc4ea5",
+      "last_updated": "2025-12-15T11:11:10.961314",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-forms-associated-with-an-appointment.md": {
+      "hash": "29fc988b0fd879aa39efe2ea313538b474372e8e8b3e08679fef21944d4465f2",
+      "last_updated": "2025-12-15T11:14:16.369872",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-data-of-an-appointment-form.md": {
+      "hash": "bc57eaff31b30f93f27ad0e610f7d49bc44f64da247533f360b040906dfa0111",
+      "last_updated": "2025-12-15T11:17:23.835996",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-details-of-an-appointment.md": {
+      "hash": "70fd54011f6c763affe8c5b24dc446679514062882b696355939def60ab8a475",
+      "last_updated": "2025-12-15T11:20:40.931612",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/mark-an-appointment-as-no-show.md": {
+      "hash": "a2bef778d98de16c31c8dc4670ba787cd788bcfa60b53b99d9669d7ff85ad3a3",
+      "last_updated": "2025-12-15T11:23:49.694527",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/mark-the-status-of-an-appointment-as-checked-in.md": {
+      "hash": "10a6125abaeee8c57d33b337845f586c6f55145bbfda61cb6c29b40c8653caae",
+      "last_updated": "2025-12-15T11:26:56.222606",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/undo-the-status-of-a-checked-in-appointment.md": {
+      "hash": "6e91a8e19efc8a63271981b34c78fffc8f57c7f12974fd2432d059e664de1ec1",
+      "last_updated": "2025-12-15T11:30:03.087841",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/update-appointment-progress-start-open-or-complete.md": {
+      "hash": "f33b8bc27981447fb7d60ecff57c90eaadf592b0a82c01aef5463b8388781735",
+      "last_updated": "2025-12-15T11:33:09.193902",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-reasons.md": {
+      "hash": "bfe5aa53504472b22eadee8fe071c87ecdd956212b79cc188ad63c8ebbfda102",
+      "last_updated": "2025-12-15T11:36:14.913831",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-all-countries.md": {
+      "hash": "000934a078ba20db07f58cf9c14d1957298840c9fe2d2d390518f7505054495b",
+      "last_updated": "2025-12-15T18:15:14.019612",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-all-states-of-a-country.md": {
+      "hash": "dcab3cd839c294c1080c2bdc222e6ff6ee441b1c17a9c1f40d267b68e2d4e335",
+      "last_updated": "2025-12-15T18:18:18.388872",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-security-roles-in-a-center.md": {
+      "hash": "f49b2502dd3c038180302256d721360793aab3984157dd0811744f05f7525cf9",
+      "last_updated": "2025-12-15T18:21:25.914547",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-list-of-all-security-profiles.md": {
+      "hash": "baf2be0d457504ab5c6e6306e7adb03bd36fb63fa3788b36758ed1a72cb00708",
+      "last_updated": "2025-12-15T18:24:31.636732",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/list-all-blockout-times-types-1.md": {
+      "hash": "5e2d5bc4838b5e42f985c20319b9343a1e502bc660b3f934e98d4459c4c0e349",
+      "last_updated": "2025-12-15T18:27:31.597451",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/get-pay-cycle-settings-of-multiple-centers.md": {
+      "hash": "aee5e9a4868f9759d253f62c47437376505123f2ec77fc416bca4f9b8cb13520",
+      "last_updated": "2025-12-15T18:30:36.660586",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-organization-settings.md": {
+      "hash": "e1da5602a6ac5f5e67a8995a0337a4add668f35ad7c8fa17535cb26cfb1e14c2",
+      "last_updated": "2025-12-15T18:33:57.400077",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-collections-report-of-a-center.md": {
+      "hash": "db23993168f65da7c5a50fade29a34c0434462331d58a669d08f47eeb7726a4f",
+      "last_updated": "2025-12-15T18:37:00.200106",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-sales-report-of-a-center.md": {
+      "hash": "800fc3c60099fdd7b456d38babf78f565dffdd6cec6d84c1e35222b271066ae6",
+      "last_updated": "2025-12-15T18:40:33.229884",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/email-notifications-report-api.md": {
+      "hash": "fe6af92f71a3a193f8810476887d7c23c82b4f28a5ecbc9cefe3b34d0a58fe1e",
+      "last_updated": "2025-12-15T18:43:38.107973",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/text-notifications-report-api.md": {
+      "hash": "9dcf71f85488c9faaf0c6ea0f9d70443664d2fa369ba2dc6231ce877a0d7f647",
+      "last_updated": "2025-12-15T18:46:43.890841",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/report-to-fetch-the-class-details-of-an-organization.md": {
+      "hash": "4a8f935872cc5ee86542a10dc377e090bc9d038ad03ed21a4c319767b57287d4",
+      "last_updated": "2025-12-15T18:49:48.039663",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/fetch-employee-audit-report.md": {
+      "hash": "801b182cf8c84624ec25593da68c330eb9e88bab10b090542bbc42791131ba67",
+      "last_updated": "2025-12-15T18:52:53.530203",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/sales-accrual-report.md": {
+      "hash": "bbec1ef147f03371501141b462eec970466c73b5b787151d217641607ead7c96",
+      "last_updated": "2025-12-15T18:56:04.233343",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/fetch-collections-report.md": {
+      "hash": "5a28425112aeffbad0241b841a6975d9cad52e1debf6d024917898ccd589d021",
+      "last_updated": "2025-12-15T18:59:13.566550",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-all-vendors-for-an-organization.md": {
+      "hash": "38953bd129ccf466fc30648128b0dba008ba42bfdd9193b7a69233393d04f531",
+      "last_updated": "2025-12-15T19:02:17.057520",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-all-products-associated-to-a-vendor.md": {
+      "hash": "6ed565459f466808a07199cfae5786382138185c02a5892ed13900db34912ca2",
+      "last_updated": "2025-12-15T19:05:22.814301",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-stock-quantities-of-products.md": {
+      "hash": "74359c9914d302f8c2c6bbd258743d54ff099a2cce4f26d9bd79df8e52e20749",
+      "last_updated": "2025-12-15T19:08:27.926687",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-consumption-details-of-products-for-a-center.md": {
+      "hash": "e4ebb267eb3e1c581f008556764c724d4a61d689dd6e7c0048e1c45d984a9d5a",
+      "last_updated": "2025-12-15T19:11:35.404351",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-purchase-orders-for-a-center.md": {
+      "hash": "7afa1d13d84c79d839d66f107d91bba4cb502ffd991a2056a7dbbed819d78470",
+      "last_updated": "2025-12-15T21:17:15.042504",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-transfer-orders-for-a-center.md": {
+      "hash": "c35bec8fbe857eeaa74b0e4808bf5e30cd9cd8a5d65bb5aa15e7cef20868ef8b",
+      "last_updated": "2025-12-15T21:20:23.234169",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-details-of-a-purchase-order.md": {
+      "hash": "a74f796be7039aaea879638c3314555587d325307bbd838de9d97f8da88ac726",
+      "last_updated": "2025-12-15T21:23:27.843079",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-details-of-a-transfer-order.md": {
+      "hash": "0dadc8704ca0b1671988bc599dfff3970c6da9d8abbc4f18520a9c30ce2ea5eb",
+      "last_updated": "2025-12-15T21:26:33.132803",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/associate-products-with-centers-in-bulk.md": {
+      "hash": "212618e7c0db3d01d31fbf6e8e55bf2b950a5c3cf04da835da40d8021dbd1e1e",
+      "last_updated": "2025-12-15T21:29:44.307119",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-a-list-of-users.md": {
+      "hash": "9ceac275d46089b9b4e3ef8855de567363bb5db3aef41c63e3b3674c6c4f091f",
+      "last_updated": "2025-12-15T21:32:53.475116",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-class-registrations.md": {
+      "hash": "c57c69e35de78d88b636a3732da2243e021d763738ed1136c31017719b167ddd",
+      "last_updated": "2025-12-15T21:36:01.585482",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-guest-registration.md": {
+      "hash": "9fe21b6a20e1b96acc89df7dcfde3730ecf458bed8e068fec4f9cef4c0dd7e15",
+      "last_updated": "2025-12-15T21:39:12.566413",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/register-a-guest-on-gympass.md": {
+      "hash": "82c73c3af98a1972808a4b7cda93f3a93e051c7afd9051d1b8cb7d8cd98ed215",
+      "last_updated": "2025-12-15T21:42:18.549708",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/cancel-a-guests-registration-to-a-class.md": {
+      "hash": "ac0ba14280eb5097e9e362540d0bdfb3bc553401907725b0ff721e7f8c4cfad9",
+      "last_updated": "2025-12-15T21:45:23.898453",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/cancel-a-guests-registration-to-a-workshop.md": {
+      "hash": "1688f40dd6b3dc9b1c2277406c665fc4f4b93ff07a6792968c05e501fc53e9e0",
+      "last_updated": "2025-12-15T23:27:09.303487",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/check-in-registered-guests-to-classes.md": {
+      "hash": "8f608bb6f6330c7d0caeee7f8adf8a6b5bea80557aa929a5f2c10ce36ee3e32c",
+      "last_updated": "2025-12-15T23:30:17.659498",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/undo-the-check-in-of-a-guest-to-a-class.md": {
+      "hash": "e1288a1b860ebfb67b0a52350932876d130d3cb097aa41ace368f1363a548f4a",
+      "last_updated": "2025-12-15T23:33:25.598717",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/check-in-registered-guests-to-workshops.md": {
+      "hash": "dd625f8a37447ad609d4b9e061bf00eeeeeaa7216bcbd928152ffaf73320a5d3",
+      "last_updated": "2025-12-15T23:36:34.780355",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/undo-check-in-of-a-guest-to-a-workshop.md": {
+      "hash": "08b78f7495a29f172f77003834740237b0f7f63f0899cb3a45a7a092c25cb1b7",
+      "last_updated": "2025-12-15T23:39:44.189198",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/fetch-a-list-of-booked-users-of-a-workshop-event.md": {
+      "hash": "9f293bc6439d10d66d3d796aee43bef1b2e38b9dc93020570c6c5bbfb2413a5c",
+      "last_updated": "2025-12-15T23:43:02.883593",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/register-a-guest-to-a-workshop.md": {
+      "hash": "38ba1d0742f64ced62459764440c080aee02acad5ee559a820c8ec6c95f81707",
+      "last_updated": "2025-12-15T23:46:17.293116",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/fetch-user-registrations-for-classesworkshops.md": {
+      "hash": "ff5cb2556afd905d1a74aa6764d236d6d45141b8d254c531217cca4d8d859bab",
+      "last_updated": "2025-12-15T23:49:37.917475",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/enroll-or-register-a-guest-for-a-class-session-by-an-admin.md": {
+      "hash": "9c0e5bf996ec7b4741b0791f7ea2a4c068e5f93f154b6826ac9f3dc267c8d0b9",
+      "last_updated": "2025-12-15T23:52:49.898245",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-class-session-registrations-of-a-guest.md": {
+      "hash": "22149da82dc1e0af59e3daa99cfc975df003a254f76120a314c0e951c2b6b22f",
+      "last_updated": "2025-12-15T23:56:02.982161",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/cancel-the-registration-of-a-class-session.md": {
+      "hash": "a81ee7b8700921f5c323444b76d63f19bb67ca09e6f26f0157ca9a85d6b895ff",
+      "last_updated": "2025-12-15T23:59:13.091993",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-an-invoice-for-the-sale-of-a-membership.md": {
+      "hash": "c0103dc6fe4681ee9eb4d7e1389faf110bc5e1adc744854d925d4513199058c0",
+      "last_updated": "2025-12-16T00:02:44.531193",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-an-invoice-for-the-sale-of-a-series-package.md": {
+      "hash": "c5c08f312860e4211826d746a25ca891a00315730c6e02a7f68dec10a48bb249",
+      "last_updated": "2025-12-16T00:06:15.249917",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/book-a-class-session.md": {
+      "hash": "29e26bbc6b4ad402c02bc40884120ba715e0ac7e827536784d84cbae2588f9c8",
+      "last_updated": "2025-12-16T00:09:26.984633",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/close-a-series-package-sale-invoice.md": {
+      "hash": "0ba04831daa9c544b5a6dfc06c2465fa2589364674a55d9256d0f163590be17f",
+      "last_updated": "2025-12-16T00:20:15.054432",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/collect-payment-for-a-class-booking-by-using-the-guests-saved-creditdebit-card.md": {
+      "hash": "424ded82b60c0ead1b3b417f331abeab8cd6e68cc126d0f319216f8c9d1a112c",
+      "last_updated": "2025-12-16T00:23:32.327886",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/close-a-membership-sale-invoice.md": {
+      "hash": "8b378e9ca182faf9aef062fc354aaaeaec2863ecef07073d17f8bd8e1b981886",
+      "last_updated": "2025-12-16T00:27:08.576455",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-payment-methods.md": {
+      "hash": "ed89a19287c593b98d91f237e83c927d61fb0bc5d27a3cae2b8104d78490aa28",
+      "last_updated": "2025-12-16T00:30:23.599727",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-saved-creditdebit-cards-of-a-guest-1.md": {
+      "hash": "2343ee902450556e96300dac52409a3e740d7dfb308c3438bef970f852c01052",
+      "last_updated": "2025-12-16T00:33:37.748650",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-schedules-of-classes-in-multiple-centers.md": {
+      "hash": "50ac2e0e7c35e72a55f6981ab3fb2b324f174f10adcb257551f91e8a6e068b2a",
+      "last_updated": "2025-12-16T00:37:04.747920",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-session-registrations-of-a-center.md": {
+      "hash": "dba5f8e1177eaab5b1145ad7edacc833c3ac2aaf053ded1ceaea783445d5f88e",
+      "last_updated": "2025-12-16T00:40:19.427146",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-memberships-associated-with-classes.md": {
+      "hash": "3bc5f8e0ee65f012206b428cd19d0ab007e2a7502e9d01cfacf8240c974c05e6",
+      "last_updated": "2025-12-16T00:43:34.960797",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-packages-associated-with-classes.md": {
+      "hash": "4eefbfa6eb761288fa4363653829154b68a7280e758874ce27d3c5cdd3313f03",
+      "last_updated": "2025-12-16T00:46:53.119940",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/cancel-the-payment-transaction-of-a-class-booking.md": {
+      "hash": "e895c5307f83f6f4deb51475ab2f7713a05a4d01662bc7e2d3b1bcd789fb15b2",
+      "last_updated": "2025-12-16T00:50:07.125398",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/collect-payment-for-a-class-booking-by-using-a-new-creditdebit-card.md": {
+      "hash": "11c25782fbfee18a6005ab33c5e0f465e3fe4c97ba9567975164b22ecde4b98b",
+      "last_updated": "2025-12-16T00:53:25.778245",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-session-registrations-of-a-guest.md": {
+      "hash": "991928fa9e3da67e9562b896f5d55378ce2c6d64c8833f47c77501ae867245e7",
+      "last_updated": "2025-12-16T00:56:42.108434",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/cancel-a-booking-registration.md": {
+      "hash": "b329db0f1adf804d76c1068bb7c5d8b4d3ee3bb70f75c768be0f117ff591ed58",
+      "last_updated": "2025-12-16T00:59:58.765365",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/add-a-guest-pass-user.md": {
+      "hash": "aefe1664e8f5b1604dfbc5557c023bdb33ed7c86805c5292d467546dc730bb59",
+      "last_updated": "2025-12-16T01:03:12.276112",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-a-list-of-all-the-guest-pass-users.md": {
+      "hash": "3240347022c145361e1ec6f24509583c2ac6bc86afc635bf51d9b7b91a38dc2a",
+      "last_updated": "2025-12-16T01:06:31.353616",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/redeem-a-guests-guest-pass.md": {
+      "hash": "b7ae4f85738d795ee99568a424ea0ebec1983edad5fce1491d2b98608c25af7f",
+      "last_updated": "2025-12-16T01:09:44.503271",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-a-list-of-all-the-guest-passes-sent-from-or-received-by-a-user.md": {
+      "hash": "5b03dd8ee26b10d35b054e448f0ecf07fdf8befec9c24b25a03fb0083ed7fa59",
+      "last_updated": "2025-12-16T01:13:04.007022",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/metrics.md": {
+      "hash": "61921dee5f3fab57d459de684e136ecf85ba01b44b89111dec288e3a26d9be2c",
+      "last_updated": "2025-12-16T01:15:42.944138",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/generate-shopify-multipass-url.md": {
+      "hash": "369f0a862452e7344d877226ea207ca1da3736933d81bfcba7740f5d60913671",
+      "last_updated": "2025-12-16T01:18:54.283560",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-an-invoice-for-the-sale-of-a-gift-card.md": {
+      "hash": "8b9ee2ae8d96e0eed635b5ec786546f6a312219e7b89e9715f005dfb24632099",
+      "last_updated": "2025-12-16T01:22:10.572082",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/apply-a-media-campaign-offer-code-on-an-invoice.md": {
+      "hash": "c83cdf5612340733dc7152ce4641c3e5265e9a3699447f2b0bf8d026a12d1bfc",
+      "last_updated": "2025-12-16T01:25:25.899586",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/redeem-the-loyalty-points-of-a-guest.md": {
+      "hash": "165dc2a4adc917bccfd0823c3bf1134bbc33267ee706ef320f9f5f1937d52963",
+      "last_updated": "2025-12-16T01:28:42.313268",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/send-a-gift-card-email-to-a-guest.md": {
+      "hash": "02fcc3ae22de7efdad297c3ac44348bd77bd59aa3cc521e033fd3ab57e4732dc",
+      "last_updated": "2025-12-16T01:31:55.710214",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-invoice-details.md": {
+      "hash": "a213daf9782cd287948daa9450771b3559e3f7684c4156b91377079683242f78",
+      "last_updated": "2025-12-16T01:35:57.668285",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-invoice-details-1.md": {
+      "hash": "e1625664ec4c465feef32999bbfb147ba40efc58a77a65dd10f8bc373d4882f4",
+      "last_updated": "2025-12-16T01:39:33.281607",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/cancel-a-service-booking.md": {
+      "hash": "5e846d6f8406af0d47a80595d699aeb1af94c30f629aba42c5302c17a820bae2",
+      "last_updated": "2025-12-16T01:42:46.146714",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/send-an-email-to-a-guest.md": {
+      "hash": "222e2a528e15328a4c830394468dee80a4727ad3a4b5ee08fc8b991f61573729",
+      "last_updated": "2025-12-16T01:45:57.924368",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/mark-an-appointment-as-confirm-or-undo-confirm.md": {
+      "hash": "4aef85f4c49f1749181bd7ac9bfd964c5581811cb3ad2c3d384594ed8dff055e",
+      "last_updated": "2025-12-16T01:49:11.191489",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-a-group-invoice.md": {
+      "hash": "e6e478ac3af3c3b878c38d35d8cc041c69329684d8f883d6984e2df463909ee9",
+      "last_updated": "2025-12-16T01:52:30.770549",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/send-a-group-invoice-email.md": {
+      "hash": "d3f7c9749333d1e38f7bce5e40cdfa3af87bc5088dc5dac04d6aee1cd3b0fa7d",
+      "last_updated": "2025-12-16T01:55:49.313358",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/get-group-invoice-details.md": {
+      "hash": "53575556df682867e6dfd65c70b950707aaafb8d9c9f6351a4a9864167a4dc16",
+      "last_updated": "2025-12-16T01:59:05.292571",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-an-invoice-for-memberships.md": {
+      "hash": "f4d9ac3a1cf92cf7b2d6c0527a0904a03169bdc17397dad4b2133db6073db64e",
+      "last_updated": "2025-12-16T02:02:18.313027",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/add-a-membership-to-an-invoice.md": {
+      "hash": "e667ea84c7179449f0066c735b9e2570a91d0e7befe7f9d7a92b6473027a2e94",
+      "last_updated": "2025-12-16T02:05:32.730766",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/delete-a-membership-from-an-invoice.md": {
+      "hash": "cb6ddb05f950d26b9721e621099f5b5a818f2ba18d7a8e36c454f3524884523c",
+      "last_updated": "2025-12-16T02:08:45.890386",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/create-an-invoice-for-products.md": {
+      "hash": "62046b2c2670a91cd1ba6ba688c91712a5b05200343f604f1ed58e0f897a3030",
+      "last_updated": "2025-12-16T02:12:01.103571",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/add-a-product-to-an-invoice.md": {
+      "hash": "cd66ebbc51b94011d10ad26b83acfccecbd3649026982a6299b74bfc3980ebeb",
+      "last_updated": "2025-12-16T02:15:15.706845",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/delete-a-product-from-an-invoice.md": {
+      "hash": "9e2652174ef79d47314a0d89086624f084504c417c07f5625103423d7b363c68",
+      "last_updated": "2025-12-16T02:18:29.890334",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/ability-to-redeem-series-regular-package-in-api.md": {
+      "hash": "aaba81d290a6032863cf98bd278dea2dbeb546d0f74edfdf14a4b86d5d78c661",
+      "last_updated": "2025-12-16T02:21:42.083775",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/ability-to-sell-series-regular-packages-in-api.md": {
+      "hash": "714738b5001588ab98a8b7eae83a337c85ebb63c7331f95273021f4cce71cdfe",
+      "last_updated": "2025-12-16T02:24:54.336206",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/collect-invoice-payment-by-using-a-guests-saved-creditdebit-card.md": {
+      "hash": "52dba3af2c50c6afc05d31dd2075252f280a48f829159f0eaf576572ea18fa57",
+      "last_updated": "2025-12-16T10:33:35.523359",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/collect-invoice-payment-by-redeeming-a-guests-gift-card.md": {
+      "hash": "b99a6433dfca36eaf8e3c084b85062b79d765fb9dc6e1676628911bd97a06d1a",
+      "last_updated": "2025-12-16T10:36:48.412795",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/collect-invoice-payment-by-using-a-guests-unsaved-creditdebit-card.md": {
+      "hash": "20d16b09446e3d66efc47e105fe63d217e178a217a00ee097d0b2e78f58e68c5",
+      "last_updated": "2025-12-16T11:03:56.109313",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/insert-custom-payment-for-an-invoice-into-zenoti.md": {
+      "hash": "8b12dd1fe3cbd384c20d80260b1fdd286d02e6548640fc4da10785cac082aa81",
+      "last_updated": "2025-12-16T11:07:08.709284",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/close-an-invoice.md": {
+      "hash": "78ab7b46b110c4d6a3a62c3eac9347ce19c4946461931be1629be9049d0fcacc",
+      "last_updated": "2025-12-16T11:10:20.075235",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/fetch-wait-times-of-available-stylists-for-a-selected-service.md": {
+      "hash": "ce338bb958ba61143107b03f5179bf4b59f57dce1d4efc45881b8165fd22504b",
+      "last_updated": "2025-12-16T11:13:32.728345",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/fetch-wait-times-of-a-center.md": {
+      "hash": "ddae5ecf343f2baf2384ca4020c390376cf21be4ba73f8d10bf49fa4a3776282",
+      "last_updated": "2025-12-16T11:16:46.922746",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/add-a-guest-or-group-of-guests-to-the-queue.md": {
+      "hash": "760d8e7427aceb738629557fa5298a37056d2a726d4af6ba860e1f67ab24f97e",
+      "last_updated": "2025-12-16T11:20:05.217113",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-the-list-of-all-appointments-in-queue-for-a-center.md": {
+      "hash": "0feeac74430fba0f43a3545964db3d54265b8e564b245e65ab2c9a967e5e3e27",
+      "last_updated": "2025-12-16T11:23:21.594230",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/webhook-events.md": {
+      "hash": "ecf5e009d61838357342c1858b1f57aa2d2b3120a32fb73edb9b50eabdc391c3",
+      "last_updated": "2025-12-16T11:25:56.387922",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/invoice-closed-event.md": {
+      "hash": "ab2b7e60ba42e68804a363c9d74a4339a2d585e407d6f6f05b6beb6d6dd0e805",
+      "last_updated": "2025-12-16T11:29:29.192848",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest.md": {
+      "hash": "75c01c968b30099928bf47ec00cf41fdac5303464d49e35fd20be28bb00b4f12",
+      "last_updated": "2025-12-16T11:32:01.674889",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-created.md": {
+      "hash": "8539312b834b596d07f1285ee6ce3531484ecae4d675f785a4cf939eacc651e0",
+      "last_updated": "2025-12-16T11:35:34.194973",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-updated.md": {
+      "hash": "082e0d28c0da37d65f5997e80ef4f8bae2e7104d71d7e5880eb851ec3f358a28",
+      "last_updated": "2025-12-16T11:39:06.842072",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-deleted.md": {
+      "hash": "10e7a5fea64a174b6fbce72b4afcdf7fc957584c0b6d42669c68847d603f29dc",
+      "last_updated": "2025-12-16T11:42:39.756721",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-communication-opted-in.md": {
+      "hash": "abee99ba6a26eb2cc13dcf5b188eb4b9e7bacf9bbc513da47351b2237a0aa796",
+      "last_updated": "2025-12-16T11:46:12.266215",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-communication-opted-out.md": {
+      "hash": "11cefe43057a3b3897825242f265264975e6eac03e0538c8cc479f28f327d29c",
+      "last_updated": "2025-12-16T11:49:44.980075",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/classes-schedule.md": {
+      "hash": "29004f71039970682eb9983456d565fdb47858cd2a464493963a610c2e523fe0",
+      "last_updated": "2025-12-16T11:52:17.382985",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/schedule-created.md": {
+      "hash": "26308ed7e8039e03ed25750bc25bd7eb740698f22a5eed36d3ad9bb9e414d08a",
+      "last_updated": "2025-12-16T14:25:46.439879",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/schedule-updated.md": {
+      "hash": "2cfb324fe4fe3b306a2ca5ffecbf08e0e6ca3b4a35d21e19844033106a351517",
+      "last_updated": "2025-12-16T14:29:24.833336",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/schedule-cancelled.md": {
+      "hash": "1473b9f092669a4a2658b0b2c6a180fdbc2518afa46642f05dfbf3432265842d",
+      "last_updated": "2025-12-16T14:33:01.957097",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/schedule-deleted.md": {
+      "hash": "f5a0a265276e45ee2500f03ca77a0e9d7d44a3f5dbd6ad0857488715c708b9cc",
+      "last_updated": "2025-12-16T14:36:40.476328",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/classes-booking-events.md": {
+      "hash": "c40943504b282e881c651595d99448b0bd42401a6622f9783dc850b405d7b07b",
+      "last_updated": "2025-12-16T14:39:17.480110",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/booking-created.md": {
+      "hash": "7ccb616a0fdf4e0036178ecadd4bd5b32a2842302c8bccc80ad46faff3e15e39",
+      "last_updated": "2025-12-16T14:42:55.250806",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/booking-deleted.md": {
+      "hash": "9b4380779843b9a1932f4c683aaad372523924e82d8c44a71848d51efc0c8cf4",
+      "last_updated": "2025-12-16T14:46:34.551357",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/booking-cancelled.md": {
+      "hash": "70d2d263719dad62c29e6e94b521ff6ea79aa2343f9ed28ce260d8e3222af8d6",
+      "last_updated": "2025-12-16T14:50:12.472867",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/booking-no-show.md": {
+      "hash": "2f6cb523be1d79bf9bc914ebeaa7985eef7d063d6bc2b581636070eec70720fe",
+      "last_updated": "2025-12-16T14:53:51.687235",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/booking-approved.md": {
+      "hash": "1538c0702728a9b478366ba414b00d9db37496e9db8f021c6088687d5cf84711",
+      "last_updated": "2025-12-16T14:57:29.735607",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/booking-rejected.md": {
+      "hash": "b081fe76ce7fb48effc39b16002f86650093ce9e16582dd743881bfa9b526a07",
+      "last_updated": "2025-12-16T15:01:09.760593",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-membership-events.md": {
+      "hash": "6e01382f4e8ce100734b3db273647c32b8e034b0bd887da4c613f94b13d9e801",
+      "last_updated": "2025-12-16T15:03:46.018505",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-membership-created.md": {
+      "hash": "1b4af975e66a5bc0777d567f133ab7a12eca965b94a39f4a73dc54b8aa6dc197",
+      "last_updated": "2025-12-16T15:07:25.577046",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-membership-freeze.md": {
+      "hash": "f95b2f6d3419e06cd15915565c1d9a78424b8c372da32338fc4646d1eaa7aea4",
+      "last_updated": "2025-12-16T15:11:05.307425",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-membership-unfreeze.md": {
+      "hash": "04ff50771eb7ff395a8eb17663f464a159803605133dfe7379b0465b3e0bc619",
+      "last_updated": "2025-12-16T15:14:43.908851",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-membership-cancelled.md": {
+      "hash": "34e59ec40bb5cde57ec295e6e78fc57753d11cd51e09c1dccf97b9142c16ec2a",
+      "last_updated": "2025-12-16T15:18:23.301091",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-membership-reinstate.md": {
+      "hash": "97ad33d7b96daba12c8d252696c5a72066fb69802a60685fb92614800302de78",
+      "last_updated": "2025-12-16T15:22:02.155290",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guestpass-redemption.md": {
+      "hash": "1d2395e36799b3fc31846002766caec5d063a71cd10de5dae6fe1986d01acb2b",
+      "last_updated": "2025-12-16T15:25:41.817209",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/appointment-events.md": {
+      "hash": "b300e6105b63e26983deda2b57c7cb340b105372d8bf0f0047ec7fe0d5f0100e",
+      "last_updated": "2025-12-16T15:28:19.080121",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/appointment-started.md": {
+      "hash": "349465db50389ea41c81e86fcb11abfbfb33d4a9d760afd4c55fbf4d3050bf50",
+      "last_updated": "2025-12-16T15:31:57.672681",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/appointment-completed.md": {
+      "hash": "0b4f028d9dd7e26c0644061002be4c545f690013b4540500a8456babd937debc",
+      "last_updated": "2025-12-17T00:05:21.781054",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/appointment-feedback-event.md": {
+      "hash": "abdef003d556817a3b702d834fb5edfabea51ad5931484330f83102267bfae9b",
+      "last_updated": "2025-12-17T00:08:02.630291",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/feedback-started-feedback-v2.md": {
+      "hash": "a12b3269e25ba8f69ae0de708385d65833011e1bd7059479c5c2ae0371836ed3",
+      "last_updated": "2025-12-17T00:11:40.047914",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/feedback-started-feedback-v1.md": {
+      "hash": "8c693a4b40e78d20a89f466a30f2948f3d65558a0475f717a5bb2da33a4520f2",
+      "last_updated": "2025-12-17T00:15:17.950789",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/appointment-group-events.md": {
+      "hash": "160f22e24112b2c379e57776b9ac488f23f15ff0d515728d20c8e8e384ad68e7",
+      "last_updated": "2025-12-17T00:17:53.698387",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/appointment-group-created.md": {
+      "hash": "befeb3f4992ae5b5485d1544eb711ed2f6798c7f284509822247b61e8d339932",
+      "last_updated": "2025-12-17T00:21:30.940508",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/appointment-group-status.md": {
+      "hash": "7f2ba44dcca406b463b3edb56e4e2e7d22639a503ce203d058e0fe7529909195",
+      "last_updated": "2025-12-17T00:25:08.973375",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/employee-events.md": {
+      "hash": "19038b83742d4075aec9a2d2133a2b9e45911b0ba1064669b1fb59bd3195fdd6",
+      "last_updated": "2025-12-17T00:27:45.250732",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/employee-deleted.md": {
+      "hash": "edcb44eeb84b699c5086ac47410f2a4588ac91fba0ae1cf323caf372532fc7ef",
+      "last_updated": "2025-12-17T00:31:22.246206",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/employee-created.md": {
+      "hash": "ce8eafc26bc48cf6a99dc01d04216e512643f3414b39685ffab8f48aa29f0c98",
+      "last_updated": "2025-12-17T00:35:00.197703",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/employee-updated.md": {
+      "hash": "ab5ef04846a3bcac0204f8e778784d82b70299067a275d86be162df4f4c4dafa",
+      "last_updated": "2025-12-17T00:38:37.334257",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-package-events.md": {
+      "hash": "766a29e2fd9195e03e6d595c0db6f7d51afa4dd10abbbedc2274d1c9d7ceccec",
+      "last_updated": "2025-12-17T00:41:14.436305",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-package-creation.md": {
+      "hash": "aa476590cac263bd2ef8625168f95c2cb0b26e3c9630fe859082818db2e23a5f",
+      "last_updated": "2025-12-17T00:44:52.897550",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-package-redemption.md": {
+      "hash": "b7c8ff601690fb6b5b439a51f27e79a96d35bc49e1dbe54a96891ba14a0f58cd",
+      "last_updated": "2025-12-17T00:48:29.570847",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-package-redemption-reversal.md": {
+      "hash": "989d0215a6d0941cee5cce9ed0f212661945f6226696c15843ee4f27783ca3ca",
+      "last_updated": "2025-12-17T00:52:07.250302",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-package-status-update.md": {
+      "hash": "330dadea357de3536c6c1f69c8a645668d0d232a65ed4a405a9f087b318f16dc",
+      "last_updated": "2025-12-17T00:55:45.100777",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-package-validity-update.md": {
+      "hash": "cf9ffbd74da0abb3c4e7a376455a172f32577e79a85a915649a9309d1a5280b3",
+      "last_updated": "2025-12-17T00:59:22.084809",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/validate-npi-details-of-a-prescriber.md": {
+      "hash": "64fceb07928a62189f7822953a429cf07d98b92bc5f952a1af5c06b10ce0168b",
+      "last_updated": "2025-12-17T01:02:32.431529",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/retrieve-compliance-statistics.md": {
+      "hash": "638738ca74db0aa86289b1c4db927a6414ad3bea769f64c35159ff2b02494cce",
+      "last_updated": "2025-12-17T01:05:49.112916",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/get-the-guest-consent-for-zenscribe.md": {
+      "hash": "0775d73df96130e03d23fb44a95295dfbfe9a4a69dc33605cf114322ad3bd937",
+      "last_updated": "2025-12-17T01:09:01.252558",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/add-the-guest-consent-for-zenscribe.md": {
+      "hash": "f2ebd7e3594fd66bafa0fb62e549eb6be350315728b6b0b04d0991822661911e",
+      "last_updated": "2025-12-17T01:12:13.926722",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/access-tokens.md": {
+      "hash": "e9223352713d09d6b7391b5e194c9ff9b55ea50d038312e69b858cb24d21be47",
+      "last_updated": "2025-12-17T01:15:22.740237",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/categories.md": {
+      "hash": "dd32317b3048e10a61c9ff2a9d4a56c3924f2729c7020c05efcbf8ca918e6abe",
+      "last_updated": "2025-12-17T01:18:32.816970",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/rooms.md": {
+      "hash": "cdc70b894d8716bb2ed31a4d5e2ed257f6a23af945a19d11c37b5008e1b992d3",
+      "last_updated": "2025-12-17T01:21:43.497798",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/employees.md": {
+      "hash": "4d9d1a3f9d65efec7edb7893e10c0e1f7dfe34a9753640ae769447f6476faf76",
+      "last_updated": "2025-12-17T01:24:57.857752",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/center-services.md": {
+      "hash": "2b8800e4beefc55b6b8bd8e74bf6ef5567fb22c11967ffea2358a3e45a55a4a8",
+      "last_updated": "2025-12-17T01:28:11.656176",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/center-packages.md": {
+      "hash": "f2d4d0756fdc1f7d2962560d48a18cb3cb72bc16147b4fbf1a054e651607d7a9",
+      "last_updated": "2025-12-17T01:31:47.576490",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/center-packages-1.md": {
+      "hash": "9749062db77243e8a46976db42974d1c81a4dd0554155e2bcb190278c90b73de",
+      "last_updated": "2025-12-17T15:37:41.959698",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/center-memberships.md": {
+      "hash": "531ea6ec1079e93c4f72cb3b34bb0d2b814712ff54b67caf6febd9397126094a",
+      "last_updated": "2025-12-17T15:40:50.841628",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points.md": {
+      "hash": "7ae5bd117374a5ddb102b58775850f7a0941cec0c989726d278588b7e5ae9f0a",
+      "last_updated": "2025-12-17T15:44:05.543402",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-notes.md": {
+      "hash": "f7e52e9a818f9502487f411238b581352429f651c801c4db9f1b55ef18c2e9b8",
+      "last_updated": "2025-12-17T15:47:12.372202",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-form.md": {
+      "hash": "79b267dd2a2bab707f079650006fbf5c49385338ad5f048656e2776ae435eded",
+      "last_updated": "2025-12-17T15:50:19.635131",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-memberships.md": {
+      "hash": "8cc016ee47f785b97e072d8ac1a702e29fe966a9cf50bfa6418e8560a2ab0b81",
+      "last_updated": "2025-12-17T15:53:36.302138",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/guest-password.md": {
+      "hash": "c791d5c6604a3f43decb62d67bd2f43c9ed5c1a2c013ef31f387457a566aa1a1",
+      "last_updated": "2025-12-17T15:56:43.866915",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-1.md": {
+      "hash": "67ed4a09ea230467e787c27d74a2106f0e1af1c1d0805815dffd42494b3ddd0b",
+      "last_updated": "2025-12-17T15:59:56.918229",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/blockout-times.md": {
+      "hash": "87d07c1c1522dd5db8c9615660208b23b235e754dc6399e130e7efbf85d84417",
+      "last_updated": "2025-12-17T16:03:05.547119",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/security-roles.md": {
+      "hash": "2ba40ea6ea2c26d260af6e0100660c740749054181ac676bd96fcb4dc0a9a839",
+      "last_updated": "2025-12-17T18:24:23.050212",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-2.md": {
+      "hash": "58e78cff5ad8397bef073ade8854dd21a18815490ead75f8bee28c19c523256a",
+      "last_updated": "2025-12-17T18:27:28.118963",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-4.md": {
+      "hash": "f93aa6a6386d8806d96da71e80ccb0a90351e016b6f607d541524ab36eeac125",
+      "last_updated": "2025-12-17T18:30:41.678889",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/templates.md": {
+      "hash": "c6ecb8c2718aff73c9bc1c9f746aebf004bd2ff2bc2e109ceab0b7f27e679ace",
+      "last_updated": "2025-12-17T18:33:46.119649",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-5.md": {
+      "hash": "ae17a0b0e5cb7762fd75a2197e8e4a4a7c789d832e134f3f9982ee7336ee7623",
+      "last_updated": "2025-12-17T18:37:20.283110",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/notes.md": {
+      "hash": "f6f302ef33b33413462982040defa5bf3c8dba74ec08b45843cba1ac46ce3cec",
+      "last_updated": "2025-12-17T18:40:51.375475",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-6.md": {
+      "hash": "2479279e2359f6bd452acd7f23ed0d1afeac5c5f4c94c433bd514d87f2d7bc5c",
+      "last_updated": "2025-12-17T18:43:56.393263",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-7.md": {
+      "hash": "c91c0521a3a44c11ef8d954d1205fabdec8a641b8b02f599fa4b506f0cf4d786",
+      "last_updated": "2025-12-17T18:46:59.588380",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-8.md": {
+      "hash": "32e7281e1e40820576658c6dbbf6f7926c7e7c78c7bb7f188e97029c500ee37c",
+      "last_updated": "2025-12-17T18:50:03.117679",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-9.md": {
+      "hash": "4805d0b21d5520fb1e1fdda64d1755049b150a4d2dfd854d4abd8e9da7e7e0d1",
+      "last_updated": "2025-12-17T18:53:05.000097",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-10.md": {
+      "hash": "7fb2f6b5be98d11063878425eaa95c98cbdd1e8f3036b30a30ec6ff8402921bd",
+      "last_updated": "2025-12-17T18:56:08.594299",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/registration.md": {
+      "hash": "ebbb8442d6c2d7e54e813532f099b38ee713bb10d22633180fc0709601e05865",
+      "last_updated": "2025-12-17T18:59:12.741629",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/operations.md": {
+      "hash": "c617a77ff498bbf3c89cd5ec567e7c70b46daa67872744818b823c854c7b3481",
+      "last_updated": "2025-12-17T19:02:16.523377",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-11.md": {
+      "hash": "df735561ad7e2bfff90b7b0fb3c00dd4901d5096afb259d370d30cfb22530780",
+      "last_updated": "2025-12-17T19:05:40.967958",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-12.md": {
+      "hash": "23d64a21274aec56195ed17126f5498b204a81f86d8ef313774a76dfd6efd82f",
+      "last_updated": "2025-12-17T19:08:44.267037",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/api-end-points-13.md": {
+      "hash": "b480b654957a1d00c22a0b903f84d29b49b38fb9a1ccb7825d5e04fb996d9bf4",
+      "last_updated": "2025-12-17T19:11:49.804696",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/group-invoice.md": {
+      "hash": "6ead7aa28edd1ae7069a3050b486ccc993e71a884409d45d0a91da17c164894f",
+      "last_updated": "2025-12-17T19:14:58.168093",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/membership-invoices.md": {
+      "hash": "f1d085527f56b0a67b2d6c7eb79cdb1bafa9f9c7c37e47cc00e3ca29d5e68e12",
+      "last_updated": "2025-12-17T19:18:02.010106",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/product-invoices.md": {
+      "hash": "bdbfd28eea06d54482992495716363b87bc7f7b37d6724e37cc59c6ab6c35aef",
+      "last_updated": "2025-12-17T19:21:05.357766",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/package-invoices.md": {
+      "hash": "899eabd0770b6df18b96b6570b315be30ffc055b61ca28d8e8e802e332421a0d",
+      "last_updated": "2025-12-17T19:24:05.577912",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/invoice-payments.md": {
+      "hash": "e68a913a499d21d1fd7a83bdfb5797e5366934c7cfcf13ada6cdfeded45adad6",
+      "last_updated": "2025-12-17T19:48:41.446181",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/queue-apis.md": {
+      "hash": "d3ca8c03be8dc287aaf0b026e6e7fa6571142114b52646cc4e28d388f4f0e4ba",
+      "last_updated": "2025-12-17T19:51:50.079643",
+      "source_url": "https://docs.zenoti.com/reference"
+    },
+    "reference/sample-events.md": {
+      "hash": "d7d857d84f7daf50434300c6447375ddd0d3abe5da62612df35e414576e30f28",
+      "last_updated": "2025-12-17T19:55:18.893557",
+      "source_url": "https://docs.zenoti.com/reference"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-08T14:34:30.411568",
-    "fetch_duration_seconds": 612.928712,
-    "successful": 12,
-    "failed": 18,
-    "fetch_tool_version": "1.0"
+    "last_fetch_completed": "2025-12-17T19:55:19.041868",
+    "fetch_duration_seconds": 262141.926036,
+    "successful": 311,
+    "failed": 0,
+    "fetch_tool_version": "2.1",
+    "incremental_save": true
   },
-  "last_updated": "2025-12-08T14:34:30.411597",
+  "last_updated": "2025-12-17T19:55:19.041900",
   "base_url": "https://raw.githubusercontent.com/tacit-code/zenoti-docs/main/docs/",
   "source": "docs.zenoti.com"
 }
